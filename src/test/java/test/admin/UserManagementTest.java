@@ -221,7 +221,7 @@ public class UserManagementTest {
         userManagementPage.addUser(employeeName,username,role,status,password,password);
         assertTrue(CommonAction.isToastDisplayed(page,"Successfully Saved"));
         page.waitForLoadState(LoadState.NETWORKIDLE);
-        assertTrue(userManagementPage.isUserCreated(username), "User DOEST NOT created");
+        assertTrue(userManagementPage.isUserCreated(username), "User DOES NOT created");
     }
 
     @Test(description = "Verify user is created successfully when add user using only uppercase letters in username")
