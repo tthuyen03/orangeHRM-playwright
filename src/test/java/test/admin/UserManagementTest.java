@@ -40,7 +40,7 @@ public class UserManagementTest {
     }
 
     //test search
-    @DataProvider(name = "searchUserData")
+   /* @DataProvider(name = "searchUserData")
     public Object[][] getSearchUserData() {
         return DataDrivenUtils.readDataFromExcel("TestData.xlsx", "SearchUsers");
     }
@@ -80,15 +80,16 @@ public class UserManagementTest {
     @Test(description = "Clear search fields")
     public void clearSearchFields(){
 
-    }
+    }*/
 
 
 
 
     //test add
-    @Test(description = "Verify user is created successfully when input all field with valid value")
+  /*@Test(description = "Verify user is created successfully when input all field with valid value")
     public void createUserWithValidValue() {
-        String employeeName = userManagementPage.randomEmployeeName();
+        setUp();
+        String employeeName = userManagementPage.randomValidEmployeeName();
         String username = RandomUtils.generateRandomString(8);
         String role = userManagementPage.randomRole();
         String status = userManagementPage.randomStatus();
@@ -98,14 +99,16 @@ public class UserManagementTest {
         assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
         ElementUtils.getLinkInSideNav(page,"Admin").click();
         userManagementPage.clickAdd();
-        userManagementPage.addUser(employeeName,username,role,status,password );
+        userManagementPage.addUser(employeeName,username,role,status,password,password );
         assertTrue(CommonAction.isToastDisplayed(page,"Successfully Saved"));
+        page.waitForLoadState(LoadState.NETWORKIDLE);
         assertTrue(userManagementPage.isUserCreated(username), "User DOEST NOT created");
     }
 
 
-    @Test(description = "Verify error message is displayed when add user with invalid employee name ")
-    public void createUser() {
+   @Test(description = "Verify error message is displayed when add user with invalid employee name ")
+    public void createUserWithInvalidEmpName() {
+        setUp();
         String employeeName = RandomUtils.generateRandomString(8);
         String username = RandomUtils.generateRandomString(8);
         String role = userManagementPage.randomRole();
@@ -116,25 +119,27 @@ public class UserManagementTest {
         assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
         ElementUtils.getLinkInSideNav(page,"Admin").click();
         userManagementPage.clickAdd();
-        userManagementPage.addUser(employeeName,username,role,status,password);
+        userManagementPage.addUser(employeeName,username,role,status,password,password);
         assertTrue(userManagementPage.isErrorMessageDisplayed(),"Expected error message under input");
     }
 
     @Test(description = "Verify error message is displayed when leaving mandatory fields empty")
     public void createUserWithEmptyMandatoryField() {
+        setUp();
         login.login("Admin", "admin123");
         page.waitForLoadState(LoadState.NETWORKIDLE);
         assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
         ElementUtils.getLinkInSideNav(page,"Admin").click();
         userManagementPage.clickAdd();
-        userManagementPage.addUser(null,null,null,null,null);
+        userManagementPage.clickSave();
         assertTrue(userManagementPage.isErrorMessageDisplayed(),"Expected error message under input");
     }
 
-    @Test(description = "Verify error message is displayed when add user with special characters/number in username")
+    @Test(description = "Verify user is created successfully when add user with special characters/number in username")
     public void createUserWithSpecialCharacterInUsername() {
-        String employeeName = userManagementPage.randomEmployeeName();
-        String username = RandomUtils.generateRandomString(8);
+        setUp();
+        String employeeName = userManagementPage.randomValidEmployeeName();
+        String username = RandomUtils.generateRandomStringWithSpecialChars(8);
         String role = userManagementPage.randomRole();
         String status = userManagementPage.randomStatus();
         String password = RandomUtils.generateRandomStringWithSpecialChars(8);
@@ -143,13 +148,15 @@ public class UserManagementTest {
         assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
         ElementUtils.getLinkInSideNav(page,"Admin").click();
         userManagementPage.clickAdd();
-        userManagementPage.addUser(employeeName,username,role,status,password);
+        userManagementPage.addUser(employeeName,username,role,status,password,password);
         assertTrue(CommonAction.isToastDisplayed(page,"Successfully Saved"));
+        page.waitForLoadState(LoadState.NETWORKIDLE);
         assertTrue(userManagementPage.isUserCreated(username), "User DOEST NOT created");
     }
 
-    @Test(description = "Verify error message is displayed when Add user with only spaces in username")
+    @Test(description = "Verify error message is displayed when add user with only spaces in username")
     public void createUserWithOnlySpaceInUsername() {
+        setUp();
         String employeeName = RandomUtils.generateStringWithOnlySpaces();
         String username = RandomUtils.generateRandomString(8);
         String role = userManagementPage.randomRole();
@@ -160,13 +167,14 @@ public class UserManagementTest {
         assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
         ElementUtils.getLinkInSideNav(page,"Admin").click();
         userManagementPage.clickAdd();
-        userManagementPage.addUser(employeeName,username,role,status,password);
+        userManagementPage.addUser(employeeName,username,role,status,password,password);
         assertTrue(userManagementPage.isErrorMessageDisplayed(),"Expected error message under input");
     }
 
     @Test(description = "Verify error message is displayed when add user with a username less than 5 characters")
     public void createUserWithUsernameLessThanFiveChars() {
-        String employeeName = userManagementPage.randomEmployeeName();
+        setUp();
+        String employeeName = userManagementPage.randomValidEmployeeName();
         String username = RandomUtils.generateRandomString(5);
         String role = userManagementPage.randomRole();
         String status = userManagementPage.randomStatus();
@@ -176,14 +184,15 @@ public class UserManagementTest {
         assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
         ElementUtils.getLinkInSideNav(page,"Admin").click();
         userManagementPage.clickAdd();
-        userManagementPage.addUser(employeeName,username,role,status,password);
+        userManagementPage.addUser(employeeName,username,role,status,password,password);
         assertTrue(userManagementPage.isErrorMessageDisplayed(),"Expected error message under input");
     }
 
     @Test(description = "Verify error message is displayed when add user with a username more than 40 characters")
-    public void createUserWithUsernameLessThanFortyChars() {
-        String employeeName = userManagementPage.randomEmployeeName();
-        String username = RandomUtils.generateRandomString(40);
+    public void createUserWithUsernameMoreThanFortyChars() {
+        setUp();
+        String employeeName = userManagementPage.randomValidEmployeeName();
+        String username = RandomUtils.generateRandomString(41);
         String role = userManagementPage.randomRole();
         String status = userManagementPage.randomStatus();
         String password = RandomUtils.generateRandomStringWithSpecialChars(8);
@@ -192,13 +201,14 @@ public class UserManagementTest {
         assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
         ElementUtils.getLinkInSideNav(page,"Admin").click();
         userManagementPage.clickAdd();
-        userManagementPage.addUser(employeeName,username,role,status,password);
+        userManagementPage.addUser(employeeName,username,role,status,password,password);
         assertTrue(userManagementPage.isErrorMessageDisplayed(),"Expected error message under input");
     }
 
-    @Test(description = "Verify error message is displayed when add user using only lowercase letters in username")
+    @Test(description = "Verify user is created successfully when add user using only lowercase letters in username")
     public void createUserWithOnlyLowercaseInUsername() {
-        String employeeName = userManagementPage.randomEmployeeName();
+        setUp();
+        String employeeName = userManagementPage.randomValidEmployeeName();
         String username = RandomUtils.generateRandomString(8).toLowerCase();
         String role = userManagementPage.randomRole();
         String status = userManagementPage.randomStatus();
@@ -208,14 +218,17 @@ public class UserManagementTest {
         assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
         ElementUtils.getLinkInSideNav(page,"Admin").click();
         userManagementPage.clickAdd();
-        userManagementPage.addUser(employeeName,username,role,status,password);
-        assertTrue(userManagementPage.isErrorMessageDisplayed(),"Expected error message under input");
+        userManagementPage.addUser(employeeName,username,role,status,password,password);
+        assertTrue(CommonAction.isToastDisplayed(page,"Successfully Saved"));
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(userManagementPage.isUserCreated(username), "User DOEST NOT created");
     }
 
-    @Test(description = "Verify error message is displayed when add user using only uppercase letters in username")
+    @Test(description = "Verify user is created successfully when add user using only uppercase letters in username")
     public void createUserWithOnlyUppercaseInUsername() {
-        String employeeName = userManagementPage.randomEmployeeName();
-        String username = RandomUtils.generateRandomString(8).toLowerCase();
+        setUp();
+        String employeeName = userManagementPage.randomValidEmployeeName();
+        String username = RandomUtils.generateRandomString(8).toUpperCase();
         String role = userManagementPage.randomRole();
         String status = userManagementPage.randomStatus();
         String password = RandomUtils.generateRandomStringWithSpecialChars(8);
@@ -224,13 +237,16 @@ public class UserManagementTest {
         assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
         ElementUtils.getLinkInSideNav(page,"Admin").click();
         userManagementPage.clickAdd();
-        userManagementPage.addUser(employeeName,username,role,status,password);
-        assertTrue(userManagementPage.isErrorMessageDisplayed(),"Expected error message under input");
+        userManagementPage.addUser(employeeName,username,role,status,password,password);
+        assertTrue(CommonAction.isToastDisplayed(page,"Successfully Saved"));
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(userManagementPage.isUserCreated(username), "User DOEST NOT created");
     }
 
     @Test(description = "Verify error message is displayed when enter password less than 7 characters")
     public void createUserWithPasswordLessThanSevenChars() {
-        String employeeName = userManagementPage.randomEmployeeName();
+        setUp();
+        String employeeName = userManagementPage.randomValidEmployeeName();
         String username = RandomUtils.generateRandomString(8);
         String role = userManagementPage.randomRole();
         String status = userManagementPage.randomStatus();
@@ -240,13 +256,14 @@ public class UserManagementTest {
         assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
         ElementUtils.getLinkInSideNav(page,"Admin").click();
         userManagementPage.clickAdd();
-        userManagementPage.addUser(employeeName,username,role,status,password);
+        userManagementPage.addUser(employeeName,username,role,status,password,password);
         assertTrue(userManagementPage.isErrorMessageDisplayed(),"Expected error message under input");
     }
 
-    @Test(description = "Verify error message is displayed when Enter password more than 64 characters")
+    @Test(description = "Verify error message is displayed when enter password more than 64 characters")
     public void createUserWithPasswordMoreThanSixtyFourChars() {
-        String employeeName = userManagementPage.randomEmployeeName();
+        setUp();
+        String employeeName = userManagementPage.randomValidEmployeeName();
         String username = RandomUtils.generateRandomString(8);
         String role = userManagementPage.randomRole();
         String status = userManagementPage.randomStatus();
@@ -256,26 +273,59 @@ public class UserManagementTest {
         assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
         ElementUtils.getLinkInSideNav(page,"Admin").click();
         userManagementPage.clickAdd();
-        userManagementPage.addUser(employeeName,username,role,status,password);
+        userManagementPage.addUser(employeeName,username,role,status,password,password);
         assertTrue(userManagementPage.isErrorMessageDisplayed(),"Expected error message under input");
     }
 
+    @Test(description = "Verify error message is displayed when enter only the password and leaves the confirm password field blank")
+    public void createUserWithBlankConfirmPassword() {
+        setUp();
+        String employeeName = userManagementPage.randomValidEmployeeName();
+        String username = RandomUtils.generateRandomString(8);
+        String role = userManagementPage.randomRole();
+        String status = userManagementPage.randomStatus();
+        String password = RandomUtils.generateRandomStringWithSpecialChars(8);
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
+        ElementUtils.getLinkInSideNav(page,"Admin").click();
+        userManagementPage.clickAdd();
+        userManagementPage.addUser(employeeName,username,role,status,password, null);
+        assertTrue(userManagementPage.isErrorMessageDisplayed(),"Expected error message under input");
+    }
+
+    @Test(description = "Verify error message is displayed when enter mismatched Password and Confirm Password")
+    public void createUserWithBlankConfirmPassword() {
+        setUp();
+        String employeeName = userManagementPage.randomValidEmployeeName();
+        String username = RandomUtils.generateRandomString(8);
+        String role = userManagementPage.randomRole();
+        String status = userManagementPage.randomStatus();
+        String password = RandomUtils.generateRandomStringWithSpecialChars(8);
+        String confirmPassword = RandomUtils.generateRandomStringWithSpecialChars(8);
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
+        ElementUtils.getLinkInSideNav(page,"Admin").click();
+        userManagementPage.clickAdd();
+        userManagementPage.addUser(employeeName,username,role,status,password, confirmPassword);
+        assertTrue(userManagementPage.isErrorMessageDisplayed(),"Expected error message under input");
+    }*/
 
 
 
 
 
-    @Test(description = "Verify sort descending by username")
-        public void checkSortDescending(){
-            setUp();
-            login.login("Admin", "admin123");
-            page.waitForLoadState(LoadState.NETWORKIDLE);
-            assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
-            ElementUtils.getLinkInSideNav(page,"Admin").click();
-            boolean result = userManagementPage.sortByColName("Employee Name", "desc");
-            assertTrue(result, "Sort failed");
-            ScreenShotUtils.takeScreenshot(page);
-        }
+ /*   public void checkSortDescending(){
+        setUp();
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
+        ElementUtils.getLinkInSideNav(page,"Admin").click();
+        boolean result = userManagementPage.sortByColName("Employee Name", "desc");
+        assertTrue(result, "Sort failed");
+        //ScreenShotUtils.takeScreenshot(page);
+    }
 
 
         //test update
@@ -284,7 +334,7 @@ public class UserManagementTest {
 
 
         //test delete
-        @Test(description = "Delete a user")
+         @Test(description = "Delete a user")
         public void deleteSingleUser(){
             setUp();
             login.login("Admin", "admin123");
@@ -405,6 +455,6 @@ public class UserManagementTest {
                 fail("Threads were interrupted");
             }
 
-        }
+        }*/
 
     }

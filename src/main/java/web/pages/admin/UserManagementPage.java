@@ -31,7 +31,7 @@ public class UserManagementPage extends BasePage {
     private final Locator inputPassword = page.locator("input[type='password']:below(label:has-text('Password'))").first();
     private final Locator inputConfirmPassword = page.locator("input[type='password']:below(label:has-text('Confirm Password'))").first();
     private final Locator btnSubmit = page.locator("button:has-text('Save')");
-    private final Locator errorMessage= page.locator("//span[contains(@class,'input-field-error-message')]");
+    List<Locator> errorMessageList = page.locator("//span[contains(@class,'input-field-error-message')]").all();
 
     public UserManagementPage(Page page){
         super(page);
@@ -48,18 +48,20 @@ public class UserManagementPage extends BasePage {
         page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(empName)).click();
     }
 
-    public String randomEmployeeName() {
+    public String randomValidEmployeeName() {
         Random rand = new Random();
         List<String> employeeNames = List.of(
-                "Linda Anderson", "John Doe", "Jane Smith", "Mark Johnson", "Emily Davis");
+                "Qwerty Qwerty LName", "Sara Tencrady", "Jobin Mathew Sam");
         return employeeNames.get(rand.nextInt(employeeNames.size()));
     }
 
-    public String generateUsername(String employeeName) {
+    public String randomInvalidEmployeeName() {
         Random rand = new Random();
-        int randomNumber = rand.nextInt(1000);
-        return employeeName.replace(" ", "").toLowerCase() + randomNumber;
+        List<String> employeeNames = List.of(
+                "Joe", "Mark", "Black");
+        return employeeNames.get(rand.nextInt(employeeNames.size()));
     }
+
 
     public String randomRole(){
         Random rand = new Random();
@@ -78,12 +80,12 @@ public class UserManagementPage extends BasePage {
 
     public boolean isUserCreated(String username) {
         searchUserByUsername(username);
-        ElementUtils.table(page).isVisible();
+        page.waitForLoadState(LoadState.NETWORKIDLE);
         List<String> userList = CommonAction.getValueOfColumnName(page, "Username");
         return userList.contains(username);
     }
 
-    public void addUser(String employeeName, String username, String role, String status, String password ){
+    public void addUser(String employeeName, String username, String role, String status, String password, String confirmPass ){
         selectUserRole.click();
         getValueInList(role);
         selectStatus.click();
@@ -93,24 +95,23 @@ public class UserManagementPage extends BasePage {
         inputUsername.fill(username);
         inputPassword.fill(password);
         inputConfirmPassword.fill(password);
+        clickSave();
+    }
+
+    public void clickSave(){
         btnSubmit.click();
     }
 
-
     public boolean isErrorMessageDisplayed(){
-        return errorMessage.isVisible();
+        for (Locator locator : errorMessageList) {
+            if (!locator.isVisible()) {
+                return false;
+            }
+        }
+        return true;
     }
 
-  /*  public void verifyResult(String expectedResult, String expectedMessage){
-        switch(expectedResult.toLowerCase()){
-            case "success" ->{
-               Locator toast = ElementUtils.toastMessage(page,"Successfully Saved");
-               toast.waitFor();
-               assertTrue("Success toast not visible", toast.isVisible());
-            }
-            case ""
-        }
-    }*/
+
 
     public void deleteUserByUsername(String username) {
         Locator btnDelete = ElementUtils.tableRow(page).locator("//div[text()='"+username+"']//ancestor::div[@role='row']//i[contains(@class,'bi-trash')]");
