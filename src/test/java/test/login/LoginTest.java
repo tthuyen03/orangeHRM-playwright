@@ -12,8 +12,6 @@ import web.constants.Constants;
 import web.pages.dashboard.DashboardPage;
 import web.pages.login.LoginPage;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 import static org.testng.Assert.assertTrue;
 import static org.testng.AssertJUnit.assertEquals;

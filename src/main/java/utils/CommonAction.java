@@ -115,6 +115,17 @@ public class CommonAction {
         return statusList.contains(newName);
     }
 
+    @Step("Verify toast is displayed")
+    public static boolean isToastDisplayed(Page page, String message){
+        Locator toast = ElementUtils.toastMessage(page, message);
+        try {
+            toast.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+            String toastText = toast.innerText();
+            return toastText.contains(message);
+        } catch (Exception e) {
+            return false;
+        }
+    }
 
     @Step("Verify search result")
     public static boolean hasSearchResults(Page page) {

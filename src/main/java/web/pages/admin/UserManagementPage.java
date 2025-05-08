@@ -12,6 +12,7 @@ import web.base.BasePage;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 import static org.testng.AssertJUnit.assertTrue;
 import static utils.CommonAction.getValueOfColumnName;
@@ -30,7 +31,7 @@ public class UserManagementPage extends BasePage {
     private final Locator inputPassword = page.locator("input[type='password']:below(label:has-text('Password'))").first();
     private final Locator inputConfirmPassword = page.locator("input[type='password']:below(label:has-text('Confirm Password'))").first();
     private final Locator btnSubmit = page.locator("button:has-text('Save')");
-
+    private final Locator errorMessage= page.locator("//span[contains(@class,'input-field-error-message')]");
 
     public UserManagementPage(Page page){
         super(page);
@@ -47,7 +48,42 @@ public class UserManagementPage extends BasePage {
         page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(empName)).click();
     }
 
-    public void addUser(String role, String employeeName, String status, String username, String password, String confirmPassword ){
+    public String randomEmployeeName() {
+        Random rand = new Random();
+        List<String> employeeNames = List.of(
+                "Linda Anderson", "John Doe", "Jane Smith", "Mark Johnson", "Emily Davis");
+        return employeeNames.get(rand.nextInt(employeeNames.size()));
+    }
+
+    public String generateUsername(String employeeName) {
+        Random rand = new Random();
+        int randomNumber = rand.nextInt(1000);
+        return employeeName.replace(" ", "").toLowerCase() + randomNumber;
+    }
+
+    public String randomRole(){
+        Random rand = new Random();
+        List<String> roles = List.of("Admin", "ESS");
+        return roles.get(rand.nextInt(roles.size()));
+    }
+
+    public String randomStatus(){
+        Random rand = new Random();
+        List<String> status = List.of("Enabled", "Disabled");
+        return status.get(rand.nextInt(status.size()));
+
+    }
+
+
+
+    public boolean isUserCreated(String username) {
+        searchUserByUsername(username);
+        ElementUtils.table(page).isVisible();
+        List<String> userList = CommonAction.getValueOfColumnName(page, "Username");
+        return userList.contains(username);
+    }
+
+    public void addUser(String employeeName, String username, String role, String status, String password ){
         selectUserRole.click();
         getValueInList(role);
         selectStatus.click();
@@ -56,9 +92,13 @@ public class UserManagementPage extends BasePage {
         getEmployeeName(employeeName);
         inputUsername.fill(username);
         inputPassword.fill(password);
-        inputConfirmPassword.fill(confirmPassword);
+        inputConfirmPassword.fill(password);
         btnSubmit.click();
+    }
 
+
+    public boolean isErrorMessageDisplayed(){
+        return errorMessage.isVisible();
     }
 
   /*  public void verifyResult(String expectedResult, String expectedMessage){
