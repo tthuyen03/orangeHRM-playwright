@@ -3,6 +3,7 @@ package web.pages.pim;
 import com.microsoft.playwright.FileChooser;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
+import com.microsoft.playwright.options.AriaRole;
 import com.microsoft.playwright.options.LoadState;
 import utils.CommonAction;
 import utils.ElementUtils;
@@ -14,6 +15,7 @@ import java.util.Random;
 
 public class EmployeePage extends BasePage {
 
+    private final Locator btnAdd = page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(" Add "));
     private final Locator inputFirstName = page.getByPlaceholder("First Name");
     private final Locator inputMiddleName = page.getByPlaceholder("Middle Name");
     private final Locator inputLastName = page.getByPlaceholder("Last Name");
@@ -27,6 +29,7 @@ public class EmployeePage extends BasePage {
     private final Locator toggleLogin = page.locator("//span[contains(@class,'switch-input')]");
     private final Locator rdoEnabled = page.locator("//label[text()='Enabled']");
     private final Locator rdoDisabled = page.locator("//label[text()='Disabled']");
+    List<Locator> errorMessageList = page.locator("//span[contains(@class,'input-field-error-message')]").all();
 
 
     public EmployeePage (Page page){
@@ -34,7 +37,6 @@ public class EmployeePage extends BasePage {
     }
 
     public boolean isToggleLoginEnable(){
-        toggleLogin.click();
         return toggleLogin.isEnabled();
     }
 
@@ -52,6 +54,16 @@ public class EmployeePage extends BasePage {
             rdoDisabled.click();
         }
     }
+
+    public void clickToggleLogin(){
+        toggleLogin.click();
+    }
+
+    public void clickAdd(){
+        btnAdd.click();
+    }
+
+
     public void addEmployee(String firstName, String middleName, String lastName, String empId, String file,
                             String username, String password, String confirmPass){
         inputFirstName.fill(firstName);
@@ -65,9 +77,8 @@ public class EmployeePage extends BasePage {
             selectStatus();
             inputPassword.fill(password);
             inputConfirmPassword.fill(confirmPass);
-            clickSave();
         }
-        clickSave();
+
     }
 
     public void clickSave(){
@@ -79,6 +90,15 @@ public class EmployeePage extends BasePage {
         page.waitForLoadState(LoadState.NETWORKIDLE);
         List<String> userList = CommonAction.getValueOfColumnName(page, "Id");
         return userList.contains(id);
+    }
+
+    public boolean isErrorMessageDisplayed(){
+        for (Locator locator : errorMessageList) {
+            if (!locator.isVisible()) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public void searchEmployeeById(String id){

@@ -5,6 +5,7 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import com.microsoft.playwright.options.LoadState;
 import com.microsoft.playwright.options.WaitForSelectorState;
+import io.qameta.allure.Step;
 import utils.CommonAction;
 import utils.ElementUtils;
 import web.base.BasePage;
@@ -16,7 +17,7 @@ import java.util.Random;
 
 import static org.testng.AssertJUnit.assertTrue;
 import static utils.CommonAction.getValueOfColumnName;
-
+import static utils.CommonAction.waitElementAfterAdd;
 
 
 public class UserManagementPage extends BasePage {
@@ -31,6 +32,9 @@ public class UserManagementPage extends BasePage {
     private final Locator inputPassword = page.locator("input[type='password']:below(label:has-text('Password'))").first();
     private final Locator inputConfirmPassword = page.locator("input[type='password']:below(label:has-text('Confirm Password'))").first();
     private final Locator btnSubmit = page.locator("button:has-text('Save')");
+    private final Locator btnCancel = page.locator("button:has-text('Cancel')");
+    private final Locator passwordStrengthLevel = page.locator("//span[contains(@class,'orangehrm-password')]");
+    private final Locator checkboxYes = page.getByRole(AriaRole.CHECKBOX, new Page.GetByRoleOptions().setName("Yes"));
     List<Locator> errorMessageList = page.locator("//span[contains(@class,'input-field-error-message')]").all();
 
     public UserManagementPage(Page page){
@@ -38,15 +42,6 @@ public class UserManagementPage extends BasePage {
 
     }
 
-    public void clickAdd(){
-        btnAdd.click();
-    }
-
-
-
-    public void getEmployeeName(String empName){
-        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(empName)).click();
-    }
 
     public String randomValidEmployeeName() {
         Random rand = new Random();
@@ -60,6 +55,13 @@ public class UserManagementPage extends BasePage {
         List<String> employeeNames = List.of(
                 "Joe", "Mark", "Black");
         return employeeNames.get(rand.nextInt(employeeNames.size()));
+    }
+
+    public String randomExistingUsername() {
+        Random rand = new Random();
+        List<String> existingUsername = List.of(
+                "FMLName", "eldyaste", "johndoe1");
+        return existingUsername.get(rand.nextInt(existingUsername.size()));
     }
 
 
@@ -77,6 +79,41 @@ public class UserManagementPage extends BasePage {
     }
 
 
+    public void getEmployeeName(String empName){
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(empName)).click();
+    }
+
+    public void clickAdd(){
+        btnAdd.click();
+    }
+
+    public void selectUserRole(String role){
+        selectUserRole.click();
+        getValueInList(role);
+    }
+
+    public void selectStatus(String status){
+        selectStatus.click();
+        getValueInList(status);
+    }
+
+    public void enterEmployeeName(String employeeName){
+        inputEmployeeName.fill(employeeName);
+        getEmployeeName(employeeName);
+    }
+
+    public void enterUsername(String username){
+        inputUsername.fill(username);
+    }
+
+    public void enterPassword(String password) {
+        inputPassword.fill(password);
+    }
+
+    public void enterConfirmPassword(String confirmPassword) {
+        inputPassword.fill(confirmPassword);
+    }
+
 
     public boolean isUserCreated(String username) {
         searchUserByUsername(username);
@@ -85,22 +122,36 @@ public class UserManagementPage extends BasePage {
         return userList.contains(username);
     }
 
+
+    @Step("Add user")
     public void addUser(String employeeName, String username, String role, String status, String password, String confirmPass ){
-        selectUserRole.click();
-        getValueInList(role);
-        selectStatus.click();
-        getValueInList(status);
-        inputEmployeeName.fill(employeeName);
-        getEmployeeName(employeeName);
-        inputUsername.fill(username);
-        inputPassword.fill(password);
-        inputConfirmPassword.fill(password);
-        clickSave();
+        selectUserRole(role);
+        selectStatus(status);
+        enterUsername(username);
+        enterEmployeeName(employeeName);
+        enterPassword(password);
+        enterConfirmPassword(confirmPass);
     }
+
 
     public void clickSave(){
         btnSubmit.click();
     }
+
+    public void clickCancel(){
+        btnCancel.click();
+    }
+
+    public boolean isUserListVisible() {
+       return ElementUtils.table(page).isVisible();
+    }
+
+
+    public String getPasswordStrengthLevel() {
+        return passwordStrengthLevel.textContent().trim();
+    }
+
+
 
     public boolean isErrorMessageDisplayed(){
         for (Locator locator : errorMessageList) {
@@ -111,7 +162,26 @@ public class UserManagementPage extends BasePage {
         return true;
     }
 
+    //edit user
 
+    public void clickEdit(String username){
+        Locator btnEdit = ElementUtils.tableRow(page).locator("//div[text()='"+username+"']//ancestor::div[@role='row']//i[contains(@class,'bi-pencil')]");
+        btnEdit.click();
+    }
+
+    public boolean isChangPasswordEnabled(){
+        return checkboxYes.isEnabled();
+    }
+    public void editUser(String employeeName, String username, String role, String status, String password, String confirmPass){
+        selectUserRole(role);
+        selectStatus(status);
+        enterUsername(username);
+        enterEmployeeName(employeeName);
+        if(isChangPasswordEnabled()){
+            enterPassword(password);
+            enterConfirmPassword(confirmPass);
+        }
+    }
 
     public void deleteUserByUsername(String username) {
         Locator btnDelete = ElementUtils.tableRow(page).locator("//div[text()='"+username+"']//ancestor::div[@role='row']//i[contains(@class,'bi-trash')]");

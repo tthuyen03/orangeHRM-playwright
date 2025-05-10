@@ -56,4 +56,22 @@ public class RandomUtils {
         }
         return sb.toString();
     }
+
+    //generate string with leading space
+    public static String generateStringWithLeadingSpaces(int length){
+        String randomString = generateRandomString(length-1);
+        return " " + randomString;
+    }
+
+    //generate string with trailing space
+    public static String generateStringWithTrailingSpaces(int length){
+        String randomString = generateRandomString(length-1);
+        return randomString + " " ;
+    }
+
+    //generate string with leading and trailing space
+    public static String generateStringWithLeadingTrailingSpaces(int length){
+        String randomString = generateRandomString(length-2);
+        return " " + randomString + " " ;
+    }
 }

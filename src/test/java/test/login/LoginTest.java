@@ -3,7 +3,7 @@ package test.login;
 import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.Cookie;
 import com.microsoft.playwright.options.LoadState;
-import factory.DriverFactory;
+import driver.BrowserManager;
 import io.qameta.allure.Step;
 import org.testng.annotations.*;
 import utils.DataDrivenUtils;
@@ -25,7 +25,7 @@ public class LoginTest {
 
 
     public void setUp(){
-        page = DriverFactory.getPage();
+        page = BrowserManager.getPage();
         login = new LoginPage(page);
         dashboard = new DashboardPage(page);
         login.navigateToPage();
@@ -154,17 +154,17 @@ public class LoginTest {
         assertTrue(dashboard.isDashboardVisible(), "Expected dashboard to be visible");
 
         //Get cookie in tab 1
-        Cookie cookieInTab1 = login.getCookieByName(DriverFactory.getContext());
+        Cookie cookieInTab1 = login.getCookieByName(BrowserManager.getContext());
 
         //Create tab 2 and login
-        Page tab2 = DriverFactory.getContext().newPage();
+        Page tab2 = BrowserManager.getContext().newPage();
         tab2.navigate(Constants.URL);
         login.login("Admin", "admin123");
         page.waitForLoadState(LoadState.NETWORKIDLE);
         assertTrue(dashboard.isDashboardVisible(), "Expected dashboard to be visible");
 
         //Get cookie in tab 2
-        Cookie cookieTab2 = login.getCookieByName(DriverFactory.getContext());
+        Cookie cookieTab2 = login.getCookieByName(BrowserManager.getContext());
 
         //Verify cookie in 2 tab
         assertEquals(cookieInTab1.value, cookieTab2.value, "Expected session cookie to be the same in both tabs");
@@ -235,7 +235,7 @@ public class LoginTest {
         assertTrue(dashboard.isDashboardVisible(), "Expected dashboard to be visible in tab 1");
 
         //login tab 2
-        Page tab2 = DriverFactory.getContext().newPage();
+        Page tab2 = BrowserManager.getContext().newPage();
         tab2.navigate(Constants.URL);
         LoginPage loginTab2 = new LoginPage(tab2);
         loginTab2.login("Admin", "admin123");

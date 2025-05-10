@@ -1,0 +1,13 @@
+version: '3'
+services:
+  playwright-hub:
+    image: mcr.microsoft.com/playwright/java:v1.43.1-jammy
+    ports:
+      - "4444:4444"
+    command: ["npx", "playwright", "run-server", "--port=4444"]
+    networks:
+      - playwright-grid
+
+networks:
+  playwright-grid:
+    driver: bridge

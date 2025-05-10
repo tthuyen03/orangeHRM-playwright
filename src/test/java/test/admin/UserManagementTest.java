@@ -1,29 +1,30 @@
 package test.admin;
 
-import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.LoadState;
-import com.microsoft.playwright.options.WaitForSelectorState;
-import factory.DriverFactory;
+import driver.BrowserManager;
 
-import io.qameta.allure.Step;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Listeners;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.testng.annotations.Test;
-import utils.*;
+import utils.CommonAction;
+import utils.ElementUtils;
+import utils.RandomUtils;
 import web.constants.Constants;
 import web.pages.admin.UserManagementPage;
 import web.pages.dashboard.DashboardPage;
 import web.pages.login.LoginPage;
 
-import java.util.List;
+import java.util.Locale;
 
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 import static org.testng.AssertJUnit.fail;
 
-
+@Epic("User Management")
+@Feature("User CRUD Operations")
 public class UserManagementTest {
     private Page page;
     private LoginPage login;
@@ -32,7 +33,7 @@ public class UserManagementTest {
 
 
     public void setUp(){
-        page = DriverFactory.getPage();
+        page = BrowserManager.getPage();
         login = new LoginPage(page);
         dashboard = new DashboardPage(page);
         userManagementPage = new UserManagementPage(page);
@@ -310,7 +311,653 @@ public class UserManagementTest {
         userManagementPage.clickAdd();
         userManagementPage.addUser(employeeName,username,role,status,password, confirmPassword);
         assertTrue(userManagementPage.isErrorMessageDisplayed(),"Expected error message under input");
+    }
+
+    @Test(description = "Verify error message is displayed when add user with leading spaces in username")
+    public void createUserWithLeadingSpaceInUsername() {
+        setUp();
+        String employeeName = userManagementPage.randomValidEmployeeName();
+        String username = RandomUtils.generateStringWithLeadingSpaces(8);
+        String role = userManagementPage.randomRole();
+        String status = userManagementPage.randomStatus();
+        String password = RandomUtils.generateRandomStringWithSpecialChars(8);
+        String confirmPassword = RandomUtils.generateRandomStringWithSpecialChars(8);
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
+        ElementUtils.getLinkInSideNav(page,"Admin").click();
+        userManagementPage.clickAdd();
+        userManagementPage.addUser(employeeName,username,role,status,password, confirmPassword);
+        assertTrue(CommonAction.isToastDisplayed(page,"Successfully Saved"));
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(userManagementPage.isUserCreated(username), "User DOEST NOT created");
+    }
+
+    @Test(description = "Verify error message is displayed when add user with leading spaces in username")
+    public void createUserWithTrailingSpaceInUsername() {
+        setUp();
+        String employeeName = userManagementPage.randomValidEmployeeName();
+        String username = RandomUtils.generateStringWithTrailingSpaces(8);
+        String role = userManagementPage.randomRole();
+        String status = userManagementPage.randomStatus();
+        String password = RandomUtils.generateRandomStringWithSpecialChars(8);
+        String confirmPassword = RandomUtils.generateRandomStringWithSpecialChars(8);
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
+        ElementUtils.getLinkInSideNav(page,"Admin").click();
+        userManagementPage.clickAdd();
+        userManagementPage.addUser(employeeName,username,role,status,password, confirmPassword);
+        assertTrue(CommonAction.isToastDisplayed(page,"Successfully Saved"));
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(userManagementPage.isUserCreated(username), "User DOEST NOT created");
+    }
+
+    @Test(description = "Verify error message is displayed when add user with leading and trailing spaces in username")
+    public void createUserWithLeadingTrailingSpaceInUsername() {
+        setUp();
+        String employeeName = userManagementPage.randomValidEmployeeName();
+        String username = RandomUtils.generateStringWithLeadingTrailingSpaces(8);
+        String role = userManagementPage.randomRole();
+        String status = userManagementPage.randomStatus();
+        String password = RandomUtils.generateRandomStringWithSpecialChars(8);
+        String confirmPassword = RandomUtils.generateRandomStringWithSpecialChars(8);
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
+        ElementUtils.getLinkInSideNav(page,"Admin").click();
+        userManagementPage.clickAdd();
+        userManagementPage.addUser(employeeName,username,role,status,password, confirmPassword);
+        assertTrue(CommonAction.isToastDisplayed(page,"Successfully Saved"));
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(userManagementPage.isUserCreated(username), "User DOEST NOT created");
+    }
+
+    @Test(description = "Verify system behavior when adding the same username simultaneously", groups = {"create", "concurrency"})
+    @Severity(SeverityLevel.CRITICAL)
+    public void addSameUsernameSimultaneously(){
+        setUp();
+        String employeeName = userManagementPage.randomValidEmployeeName();
+        String username = RandomUtils.generateStringWithLeadingTrailingSpaces(8);
+        String role = userManagementPage.randomRole();
+        String status = userManagementPage.randomStatus();
+        String password = RandomUtils.generateRandomStringWithSpecialChars(8);
+        String confirmPassword = RandomUtils.generateRandomStringWithSpecialChars(8);
+
+        //Login in tab 1
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
+        ElementUtils.getLinkInSideNav(page, "Admin").click();
+
+        //Login in tab 2
+        Page page2 = BrowserManager.getBrowser().newPage();
+        page2.navigate(Constants.URL);
+        LoginPage loginPage2 = new LoginPage(page2);
+        DashboardPage dashboardPage2 = new DashboardPage(page2);
+        UserManagementPage userMangementPage2 = new UserManagementPage(page2);
+        loginPage2.login("Admin", "admin123");
+        page2.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
+        ElementUtils.getLinkInSideNav(page2, "Admin").click();
+
+        Thread threadPage1 = new Thread(()->{
+            try{
+                userManagementPage.clickAdd();
+                userManagementPage.addUser(employeeName, username, role, status, password, confirmPassword);
+                assertTrue(CommonAction.isToastDisplayed(page, "Successfully Saved"),
+                        "Expected success message in first tab");
+
+            } catch (Exception e) {
+                System.out.println("Error: " + e.getMessage());
+            }
+        });
+
+        Thread threadPage2 = new Thread(()->{
+            try{
+                userManagementPage.clickAdd();
+                userManagementPage.addUser(employeeName, username, role, status, password, confirmPassword);
+                assertTrue(CommonAction.isToastDisplayed(page, "Successfully Saved"),
+                        "Expected error message in second tab");
+
+            } catch (Exception e) {
+                System.out.println("Error: " + e.getMessage());
+            }
+        });
+        threadPage1.start();
+        threadPage2.start();
+        try{
+            threadPage1.join();
+            threadPage2.join();
+        }
+        catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            fail("Threads were interrupted");
+        }
+        // Verify final state
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(userManagementPage.isUserCreated(username),
+                "User should be created successfully in first attempt");
+
+        // Clean up
+        page2.close();
+
+    }
+
+    @Test(description = "Verify canceling user creation returns to user list without creating user", groups = {"create", "negative"})
+    @Severity(SeverityLevel.NORMAL)
+    public void cancelUserCreation(){
+        setUp();
+        String employeeName = userManagementPage.randomValidEmployeeName();
+        String username = RandomUtils.generateStringWithLeadingTrailingSpaces(8);
+        String role = userManagementPage.randomRole();
+        String status = userManagementPage.randomStatus();
+        String password = RandomUtils.generateRandomStringWithSpecialChars(8);
+        String confirmPassword = RandomUtils.generateRandomStringWithSpecialChars(8);
+
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
+        ElementUtils.getLinkInSideNav(page, "Admin").click();
+        userManagementPage.clickAdd();
+
+        // Fill in user details
+        userManagementPage.addUser(employeeName, username, role, status, password, password);
+
+        // Click cancel instead of save
+        userManagementPage.clickCancel();
+
+        // Verify back at the user list
+        assertTrue(userManagementPage.isUserListVisible(), "Should return to user list view");
+
+        // Verify user was not created
+        assertFalse(userManagementPage.isUserCreated(username),
+                "User should not be created when canceling");
+
+    }
+
+    @Test(description = "Verify password strength indicator functionality")
+    @Severity(SeverityLevel.NORMAL)
+    public void verifyPasswordStrengthIndicator(){
+        setUp();
+        String employeeName = userManagementPage.randomValidEmployeeName();
+        String username = RandomUtils.generateStringWithLeadingTrailingSpaces(8);
+        String role = userManagementPage.randomRole();
+        String status = userManagementPage.randomStatus();
+        String password = RandomUtils.generateRandomStringWithSpecialChars(8);
+        String confirmPassword = RandomUtils.generateRandomStringWithSpecialChars(8);
+
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
+        ElementUtils.getLinkInSideNav(page, "Admin").click();
+        userManagementPage.clickAdd();
+
+        // Test Case 1: Very Weak Password (only lowercase letters)
+        userManagementPage.enterPassword("password");
+        assertTrue(userManagementPage.getPasswordStrengthLevel().equals("Very Weak"),
+                "Password strength should be 'Very Weak' for lowercase only password");
+
+        // Test Case 2: Weak Password (lowercase + numbers)
+        userManagementPage.enterPassword("password123");
+        assertTrue(userManagementPage.getPasswordStrengthLevel().equals("Very Weak"),
+                "Password strength should be 'Very Weak' for lowercase + numbers only password");
+
+        // Test Case 3: Weak Password (lowercase + uppercase + numbers)
+        userManagementPage.enterPassword("Password123");
+        assertTrue(userManagementPage.getPasswordStrengthLevel().equals("Weak"),
+                "Password strength should be 'Weak' for lowercase + uppercase + numbers password");
+
+
+        // Test Case 4: Better Password (lowercase + uppercase + numbers + special chars)
+        String strongPassword = "Password123!@#";
+        userManagementPage.enterPassword(strongPassword);
+        assertTrue(userManagementPage.getPasswordStrengthLevel().equals("Better"),
+                "Password strength should be 'Strong' for lowercase + uppercase + numbers + special chars password");
+
+        // Test Case 5: Very Strong Password (longer complex password)
+        String veryStrongPassword = "P@ssw0rd123!@#$%^&*";
+        userManagementPage.enterPassword(veryStrongPassword);
+        assertTrue(userManagementPage.getPasswordStrengthLevel().equals("Strong"),
+                "Password strength should be 'Very Strong' for longer complex password");
+    }
+
+    @Test(description = "Verify error message is displayed when add user with existing username")
+    @Severity(SeverityLevel.NORMAL)
+    public void addUserWithExistingUsername(){
+        setUp();
+        String username = userManagementPage.randomExistingUsername();
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
+        ElementUtils.getLinkInSideNav(page, "Admin").click();
+        userManagementPage.clickAdd();
+        userManagementPage.enterUsername(username);
+        assertTrue(userManagementPage.isErrorMessageDisplayed(),"Expected error message 'Already exists'");
+    }
+
+    @Test(description = "Verify error message is displayed when add user with existing username in uppercase")
+    @Severity(SeverityLevel.NORMAL)
+    public void addUserWithExistingUsernameInUppercase(){
+        setUp();
+        String username = userManagementPage.randomExistingUsername().toUpperCase();
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
+        ElementUtils.getLinkInSideNav(page, "Admin").click();
+        userManagementPage.clickAdd();
+        userManagementPage.enterUsername(username);
+        assertTrue(userManagementPage.isErrorMessageDisplayed(),"Expected error message 'Already exists'");
+    }
+
+    @Test(description = "Verify error message is displayed when add user with existing username in uppercase")
+    @Severity(SeverityLevel.NORMAL)
+    public void addUserWithExistingUsernameInLowercase(){
+        setUp();
+        String username = userManagementPage.randomExistingUsername().toLowerCase();
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
+        ElementUtils.getLinkInSideNav(page, "Admin").click();
+        userManagementPage.clickAdd();
+        userManagementPage.enterUsername(username);
+        assertTrue(userManagementPage.isErrorMessageDisplayed(),"Expected error message 'Already exists'");
     }*/
+
+
+    //test update
+    @Test(description = "Verify update user role successfully")
+    @Severity(SeverityLevel.NORMAL)
+    public void editUserRole(){
+        setUp();
+        String userRole = userManagementPage.randomRole();
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
+        ElementUtils.getLinkInSideNav(page, "Admin").click();
+        userManagementPage.clickEdit(userRole);
+        userManagementPage.enterUsername(userRole);
+        userManagementPage.clickSave();
+        assertTrue(CommonAction.isToastDisplayed(page,"Successfully Updated"),
+                "Expected message 'Successfully Updated' display");
+    }
+
+    @Test(description = "Verify update employee name successfully")
+    @Severity(SeverityLevel.NORMAL)
+    public void editEmployeeName(){
+        setUp();
+        String employeeName = userManagementPage.randomValidEmployeeName();
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
+        ElementUtils.getLinkInSideNav(page, "Admin").click();
+        userManagementPage.clickEdit(employeeName);
+        userManagementPage.enterUsername(employeeName);
+        userManagementPage.clickSave();
+        assertTrue(CommonAction.isToastDisplayed(page,"Successfully Updated"),
+                "Expected message 'Successfully Updated' display");
+    }
+
+    @Test(description = "Verify update status successfully")
+    @Severity(SeverityLevel.NORMAL)
+    public void editStatus(){
+        setUp();
+        String status = userManagementPage.randomStatus();
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
+        ElementUtils.getLinkInSideNav(page, "Admin").click();
+        userManagementPage.clickEdit(status);
+        userManagementPage.enterUsername(status);
+        userManagementPage.clickSave();
+        assertTrue(CommonAction.isToastDisplayed(page,"Successfully Updated"),
+                "Expected message 'Successfully Updated' display");
+    }
+
+    @Test(description = "Verify update status successfully")
+    @Severity(SeverityLevel.NORMAL)
+    public void ediUsername(){
+        setUp();
+        String username = RandomUtils.generateRandomString(8);
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
+        ElementUtils.getLinkInSideNav(page, "Admin").click();
+        userManagementPage.clickEdit(username);
+        userManagementPage.enterUsername(username);
+        userManagementPage.clickSave();
+        assertTrue(CommonAction.isToastDisplayed(page,"Successfully Updated"),
+                "Expected message 'Successfully Updated' display");
+    }
+
+    @Test(description = "Verify update user successfully without making any changes")
+    @Severity(SeverityLevel.NORMAL)
+    public void ediUsernameWithoutAnyChanges(){
+        setUp();
+        String username = RandomUtils.generateRandomString(8);
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
+        ElementUtils.getLinkInSideNav(page, "Admin").click();
+        userManagementPage.clickEdit(username);
+        userManagementPage.clickSave();
+        assertTrue(CommonAction.isToastDisplayed(page,"Successfully Updated"),
+                "Expected message 'Successfully Updated' display");
+    }
+
+    @Test(description = "Cancel while updating user")
+    @Severity(SeverityLevel.NORMAL)
+    public void cancelWhileUpdatingUser(){
+        setUp();
+        String username = RandomUtils.generateRandomString(8);
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
+        ElementUtils.getLinkInSideNav(page, "Admin").click();
+        userManagementPage.clickEdit(username);
+        userManagementPage.enterUsername(username);
+        userManagementPage.clickCancel();
+        assertTrue(userManagementPage.isUserListVisible(),
+                "Expected user list display");
+    }
+
+    @Test(description = "Verify error message is displayed when update with empty mandatory fields")
+    @Severity(SeverityLevel.NORMAL)
+    public void eidtUserWithEmptyMandatoryFields(){
+        setUp();
+        String username = RandomUtils.generateRandomString(8);
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
+        ElementUtils.getLinkInSideNav(page, "Admin").click();
+        userManagementPage.clickEdit(username);
+        userManagementPage.editUser(null,null,null,null,null,null);
+        userManagementPage.clickCancel();
+        assertTrue(userManagementPage.isErrorMessageDisplayed(),
+                "Expected error message is displayed");
+    }
+
+    @Test(description = "Verify error message is displayed when update user with an existing username")
+    @Severity(SeverityLevel.NORMAL)
+    public void editUserWithExistingUsername(){
+        setUp();
+        String username = userManagementPage.randomValidEmployeeName();
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
+        ElementUtils.getLinkInSideNav(page, "Admin").click();
+        userManagementPage.clickEdit(username);
+        userManagementPage.enterUsername(username);
+        userManagementPage.clickCancel();
+        assertTrue(userManagementPage.isErrorMessageDisplayed(),
+                "Expected error message is displayed");
+    }
+
+    @Test(description = "Verify update successfully with leading spaces in username")
+    @Severity(SeverityLevel.NORMAL)
+    public void editUserWithLeadingUsername(){
+        setUp();
+        String username = RandomUtils.generateStringWithLeadingSpaces(8);
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
+        ElementUtils.getLinkInSideNav(page, "Admin").click();
+        userManagementPage.clickEdit(username);
+        userManagementPage.enterUsername(username);
+        userManagementPage.clickCancel();
+        assertTrue(CommonAction.isToastDisplayed(page,"Successfully Updated"),
+                "Expected toast message is displayed");
+    }
+
+    @Test(description = "Verify update successfully with leading spaces in username")
+    @Severity(SeverityLevel.NORMAL)
+    public void editUserWithTrailingUsername(){
+        setUp();
+        String username = RandomUtils.generateStringWithTrailingSpaces(8);
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
+        ElementUtils.getLinkInSideNav(page, "Admin").click();
+        userManagementPage.clickEdit(username);
+        userManagementPage.enterUsername(username);
+        userManagementPage.clickCancel();
+        assertTrue(CommonAction.isToastDisplayed(page,"Successfully Updated"),
+                "Expected toast message is displayed");
+    }
+
+    @Test(description = "Verify update successfully with leading spaces in username")
+    @Severity(SeverityLevel.NORMAL)
+    public void editUserWithLeadingTrailingUsername(){
+        setUp();
+        String username = RandomUtils.generateStringWithLeadingTrailingSpaces(8);
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
+        ElementUtils.getLinkInSideNav(page, "Admin").click();
+        userManagementPage.clickEdit(username);
+        userManagementPage.enterUsername(username);
+        userManagementPage.clickCancel();
+        assertTrue(CommonAction.isToastDisplayed(page,"Successfully Updated"),
+                "Expected toast message is displayed");
+    }
+
+    @Test(description = "Verify update successfully with special characters/number in username")
+    @Severity(SeverityLevel.NORMAL)
+    public void editUserWithSpecialCharacterInUsername(){
+        setUp();
+        String username = RandomUtils.generateRandomStringWithSpecialChars(8);
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
+        ElementUtils.getLinkInSideNav(page, "Admin").click();
+        userManagementPage.clickEdit(username);
+        userManagementPage.enterUsername(username);
+        userManagementPage.clickCancel();
+        assertTrue(CommonAction.isToastDisplayed(page,"Successfully Updated"),
+                "Expected toast message is displayed");
+    }
+
+    @Test(description = "Verify error message is displayed when edit with mismatched Password and Confirm Password")
+    public void editUserWithMismatchPassword() {
+        setUp();
+        String employeeName = userManagementPage.randomValidEmployeeName();
+        String username = userManagementPage.randomExistingUsername();
+        String role = userManagementPage.randomRole();
+        String status = userManagementPage.randomStatus();
+        String password = RandomUtils.generateRandomStringWithSpecialChars(8);
+        String confirmPassword = RandomUtils.generateRandomStringWithSpecialChars(8);
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
+        ElementUtils.getLinkInSideNav(page,"Admin").click();
+        userManagementPage.clickEdit(username);
+        userManagementPage.editUser(employeeName,username,role,status,password, confirmPassword);
+        assertTrue(userManagementPage.isErrorMessageDisplayed(),"Expected error message under input");
+    }
+
+    @Test(description = "Verify error message is displayed when update user with a username less than 5 characters")
+    public void editUserWithUsernameLessThanFiveChars() {
+        setUp();
+        String employeeName = userManagementPage.randomValidEmployeeName();
+        String oldUsername = userManagementPage.randomExistingUsername();
+        String newUsername = RandomUtils.generateRandomStringWithSpecialChars(4);
+        String role = userManagementPage.randomRole();
+        String status = userManagementPage.randomStatus();
+        String password = RandomUtils.generateRandomStringWithSpecialChars(8);
+        String confirmPassword = RandomUtils.generateRandomStringWithSpecialChars(8);
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
+        ElementUtils.getLinkInSideNav(page,"Admin").click();
+        userManagementPage.clickEdit(oldUsername);
+        userManagementPage.editUser(employeeName,newUsername,role,status,password, confirmPassword);
+        assertTrue(userManagementPage.isErrorMessageDisplayed(),"Expected error message under input");
+    }
+
+    @Test(description = "Verify error message is displayed when update user with a username more than 40 characters")
+    public void editUserWithUsernameMoreThanFourtyChars() {
+        setUp();
+        String employeeName = userManagementPage.randomValidEmployeeName();
+        String oldUsername = userManagementPage.randomExistingUsername();
+        String newUsername = RandomUtils.generateRandomStringWithSpecialChars(41);
+        String role = userManagementPage.randomRole();
+        String status = userManagementPage.randomStatus();
+        String password = RandomUtils.generateRandomStringWithSpecialChars(8);
+        String confirmPassword = RandomUtils.generateRandomStringWithSpecialChars(8);
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
+        ElementUtils.getLinkInSideNav(page,"Admin").click();
+        userManagementPage.clickEdit(oldUsername);
+        userManagementPage.editUser(employeeName,newUsername,role,status,password, confirmPassword);
+        assertTrue(userManagementPage.isErrorMessageDisplayed(),"Expected error message under input");
+    }
+
+    @Test(description = "Verify error message is displayed when enter password less than 7 characters")
+    public void editUserWithPasswordLessThanSevenChars() {
+        setUp();
+        String employeeName = userManagementPage.randomValidEmployeeName();
+        String username = userManagementPage.randomExistingUsername();
+        String role = userManagementPage.randomRole();
+        String status = userManagementPage.randomStatus();
+        String password = RandomUtils.generateRandomStringWithSpecialChars(6);
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
+        ElementUtils.getLinkInSideNav(page,"Admin").click();
+        userManagementPage.clickEdit(username);
+        userManagementPage.editUser(employeeName,username,role,status,password,password);
+        assertTrue(userManagementPage.isErrorMessageDisplayed(),"Expected error message under input");
+    }
+
+    @Test(description = "Verify error message is displayed when enter password more than 64 characters")
+    public void editUserWithPasswordMoreThanSixtyFourChars() {
+        setUp();
+        String employeeName = userManagementPage.randomValidEmployeeName();
+        String username = userManagementPage.randomExistingUsername();
+        String role = userManagementPage.randomRole();
+        String status = userManagementPage.randomStatus();
+        String password = RandomUtils.generateRandomStringWithSpecialChars(65);
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
+        ElementUtils.getLinkInSideNav(page,"Admin").click();
+        userManagementPage.clickEdit(username);
+        userManagementPage.editUser(employeeName,username,role,status,password,password);
+        assertTrue(userManagementPage.isErrorMessageDisplayed(),"Expected error message under input");
+    }
+
+    @Test(description = "Verify update user successfully when update user using only lowercase letters in username")
+    public void editUserWithLowercaseInUsername() {
+        setUp();
+        String employeeName = userManagementPage.randomValidEmployeeName();
+        String oldUsername = userManagementPage.randomExistingUsername();
+        String newUsername = RandomUtils.generateRandomStringWithSpecialChars(8).toLowerCase();
+        String role = userManagementPage.randomRole();
+        String status = userManagementPage.randomStatus();
+        String password = RandomUtils.generateRandomStringWithSpecialChars(8);
+        String confirmPassword = RandomUtils.generateRandomStringWithSpecialChars(8);
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
+        ElementUtils.getLinkInSideNav(page,"Admin").click();
+        userManagementPage.clickEdit(oldUsername);
+        userManagementPage.editUser(employeeName,newUsername,role,status,password, confirmPassword);
+        assertTrue(userManagementPage.isErrorMessageDisplayed(),"Expected error message under input");
+    }
+
+    @Test(description = "Verify update user successfully when update user using only uppercase letters in username")
+    public void editUserWithUppercaseInUsername() {
+        setUp();
+        String employeeName = userManagementPage.randomValidEmployeeName();
+        String oldUsername = userManagementPage.randomExistingUsername();
+        String newUsername = RandomUtils.generateRandomStringWithSpecialChars(8).toUpperCase();
+        String role = userManagementPage.randomRole();
+        String status = userManagementPage.randomStatus();
+        String password = RandomUtils.generateRandomStringWithSpecialChars(8);
+        String confirmPassword = RandomUtils.generateRandomStringWithSpecialChars(8);
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
+        ElementUtils.getLinkInSideNav(page,"Admin").click();
+        userManagementPage.clickEdit(oldUsername);
+        userManagementPage.editUser(employeeName,newUsername,role,status,password, confirmPassword);
+        assertTrue(userManagementPage.isErrorMessageDisplayed(),"Expected error message under input");
+    }
+
+    @Test(description = "Verify system behavior when editing the same username simultaneously")
+    @Severity(SeverityLevel.CRITICAL)
+    public void editSameUsernameSimultaneously(){
+        setUp();
+        String employeeName = userManagementPage.randomValidEmployeeName();
+        String oldUsername = userManagementPage.randomExistingUsername();
+        String newUsername = RandomUtils.generateStringWithLeadingTrailingSpaces(8);
+        String role = userManagementPage.randomRole();
+        String status = userManagementPage.randomStatus();
+        String password = RandomUtils.generateRandomStringWithSpecialChars(8);
+        String confirmPassword = RandomUtils.generateRandomStringWithSpecialChars(8);
+
+        //Login in tab 1
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
+        ElementUtils.getLinkInSideNav(page, "Admin").click();
+
+        //Login in tab 2
+        Page page2 = BrowserManager.getBrowser().newPage();
+        page2.navigate(Constants.URL);
+        LoginPage loginPage2 = new LoginPage(page2);
+        DashboardPage dashboardPage2 = new DashboardPage(page2);
+        UserManagementPage userMangementPage2 = new UserManagementPage(page2);
+        loginPage2.login("Admin", "admin123");
+        page2.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
+        ElementUtils.getLinkInSideNav(page2, "Admin").click();
+
+        Thread threadPage1 = new Thread(()->{
+            try{
+                userManagementPage.clickAdd();
+                userManagementPage.editUser(employeeName, newUsername, role, status, password, confirmPassword);
+                assertTrue(CommonAction.isToastDisplayed(page, "Successfully Saved"),
+                        "Expected success message in first tab");
+
+            } catch (Exception e) {
+                System.out.println("Error: " + e.getMessage());
+            }
+        });
+
+        Thread threadPage2 = new Thread(()->{
+            try{
+                userManagementPage.clickAdd();
+                userManagementPage.addUser(employeeName, newUsername, role, status, password, confirmPassword);
+                assertTrue(CommonAction.isToastDisplayed(page, "Successfully Saved"),
+                        "Expected error message in second tab");
+
+            } catch (Exception e) {
+                System.out.println("Error: " + e.getMessage());
+            }
+        });
+        threadPage1.start();
+        threadPage2.start();
+        try{
+            threadPage1.join();
+            threadPage2.join();
+        }
+        catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            fail("Threads were interrupted");
+        }
+        // Verify final state
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(userManagementPage.isUserCreated(newUsername),
+                "User should be created successfully in first attempt");
+
+        // Clean up
+        page2.close();
+
+    }
+
+
 
 
 
@@ -328,7 +975,7 @@ public class UserManagementTest {
     }
 
 
-        //test update
+
 
 
 
