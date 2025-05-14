@@ -1,0 +1,13 @@
+# Grid Configuration
+REMOTE_ENABLED=true
+GRID_HOST=l
+GRID_PORT=4444
+
+# Browser Configuration
+BROWSER=chrome
+BROWSER_VERSION=latest
+HEADLESS=false
+TIMEOUT=30000
+
+# Application Configuration
+BASE_URL=https://opensource-demo.orangehrmlive.com/web/index.php/auth/login

@@ -46,7 +46,7 @@ public class UserManagementPage extends BasePage {
     public String randomValidEmployeeName() {
         Random rand = new Random();
         List<String> employeeNames = List.of(
-                "Qwerty Qwerty LName", "Sara Tencrady", "Jobin Mathew Sam");
+                "Ricardo akhil user");
         return employeeNames.get(rand.nextInt(employeeNames.size()));
     }
 
@@ -111,7 +111,7 @@ public class UserManagementPage extends BasePage {
     }
 
     public void enterConfirmPassword(String confirmPassword) {
-        inputPassword.fill(confirmPassword);
+        inputConfirmPassword.fill(confirmPassword);
     }
 
 

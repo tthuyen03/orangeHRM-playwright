@@ -1,0 +1,37 @@
+version: "3.8"
+
+services:
+  # Selenium Hub (Selenium Grid)
+  selenium-hub:
+    image: selenium/hub:4.11.0
+    container_name: selenium-hub
+    ports:
+      - "4442:4442"
+      - "4443:4443"
+      - "4444:4444"
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - JAVA_OPTS=-Djdk.httpclient.websocket.intermediateBufferSize=3000000
+    networks:
+      - playwright-network
+
+  # Playwright Node (Chrome) with CDP enabled
+  playwright-node-chrome:
+    image: selenium/node-chrome:4.11.0
+    container_name: playwright_node_chrome
+    shm_size: "2gb"
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_GRID_URL=http://selenium-hub:4444
+    depends_on:
+      - selenium-hub
+    networks:
+      - playwright-network
+
+networks:
+  playwright-network:
+    driver: bridge

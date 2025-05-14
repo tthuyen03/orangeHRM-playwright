@@ -1,0 +1,5 @@
+# Dockerfile.chrome-cdp
+FROM selenium/node-chrome:4.8.0-20230210
+
+# Override entrypoint để bật remote debugging
+ENV SE_NODE_CHROME_ARGS="--no-sandbox --disable-dev-shm-usage --remote-debugging-port=9222"

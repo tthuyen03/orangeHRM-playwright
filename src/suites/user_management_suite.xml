@@ -6,7 +6,6 @@
 
     </listeners>
     <test name="UserManagementTests">
-        <parameter name="browser" value="chromium"/>
         <classes>
             <class name="test.admin.UserManagementTest"/>
         </classes>

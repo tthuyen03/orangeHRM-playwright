@@ -14,83 +14,65 @@ public class BrowserManager {
     private static Page page;
     private static APIRequestContext apiRequestContext;
 
+
+
     //set up playwright, open browser and page
-    public static Browser getBrowser(){
+    public static void setUpBrowser() {
         playwright = Playwright.create();
-        String broswerName = Config.get("BROWSER").toLowerCase();
+        String browserName = Config.get("BROWSER").toLowerCase();
         boolean headless = Config.isHeadless();
-        if(Config.isRemote()){
-            String url = Config.get("BROWSER").toLowerCase();
-            return connectToRemote(broswerName,url);
+
+        if (Config.isRemote()) {
+            String gridUrl = Config.getGridUrl(); // Sử dụng phương thức mới từ Config class
+            System.out.println("Connecting to Selenium Grid at: " + gridUrl);
+            browser = connectToGrid(playwright, browserName, gridUrl);
+        } else {
+            browser = launchLocal(browserName, headless);
         }
-        else{
-            return launchLocal(broswerName,headless);
-        }
+
+        context = browser.newContext(new Browser.NewContextOptions()
+                .setViewportSize(null) // Cho phép responsive
+        );
+        page = context.newPage();
+        page.onConsoleMessage(msg -> System.out.println("Console message: " + msg.text()));
+
+        // Khởi tạo APIRequestContext nếu cần
+        apiRequestContext = playwright.request().newContext();
     }
 
-    private static Browser connectToRemote(String browserName, String url){
-        switch (browserName){
-            case "chrome":
-            case "chromium":
-                return playwright.chromium().connect(url);
-            case "firefox":
-                return playwright.firefox().connect(url);
-            case "webkit":
-                return playwright.webkit().connect(url);
-            default:
-                throw new RuntimeException("Unsupported browser: " + browserName);
+    private static Browser connectToGrid(Playwright playwright, String browserName, String gridUrl) {
+        // Chuyển đổi URL từ http sang websocket và thêm path /session
+        String cdpUrl = gridUrl.replace("http://", "ws://") + "/devtools/chromium";
+
+        try {
+            return switch (browserName.toLowerCase()) {
+                case "chrome", "chromium" -> {
+                    System.out.println("Connecting to Chrome via CDP: " + cdpUrl);
+                    yield playwright.chromium().connectOverCDP(cdpUrl);
+                }
+                case "firefox" -> {
+                    System.out.println("Connecting to Firefox via CDP: " + cdpUrl);
+                    yield playwright.firefox().connectOverCDP(cdpUrl);
+                }
+                default -> throw new RuntimeException("Unsupported browser for Grid connection: " + browserName);
+            };
+        } catch (PlaywrightException e) {
+            System.err.println("Failed to connect to Grid: " + e.getMessage());
+            throw new RuntimeException("Grid connection failed", e);
         }
     }
 
     private static Browser launchLocal(String browserName, Boolean headless){
         BrowserType.LaunchOptions options = new BrowserType.LaunchOptions().setHeadless(headless);
-        switch (browserName){
-            case "chrome":
-            case "chromium":
-                return playwright.chromium().launch(options);
-            case "firefox":
-                return playwright.firefox().launch(options);
-            case "webkit":
-                return playwright.webkit().launch(options);
-            default:
-                throw new RuntimeException("Unsupported browser: " + browserName);
-        }
+        return switch (browserName.toLowerCase()){
+            case "chrome", "chromium" -> playwright.chromium().launch(options);
+            case "firefox" -> playwright.firefox().launch(options);
+            case "webkit" -> playwright.webkit().launch(options);
+            default -> throw new RuntimeException("Unsupported browser: " + browserName);
+        };
     }
-
-
-    public static void getBrowser(String browserName){
-        playwright = Playwright.create();
-        switch(browserName.toLowerCase()){
-            case "chrome":
-                browser = openChrome();
-                break;
-            case "firefox":
-                browser =openFirefox();
-                break;
-            case "edge":
-                browser = openEdge();
-                break;
-            default:
-                browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
-                break;
-        }
-
-        context = browser.newContext();
-        page = context.newPage();
-
-    }
-
-    private static Browser openChrome(){
-        return browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
-    }
-
-    private static Browser openFirefox(){
-        return browser = playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(false));
-    }
-
-    private static Browser openEdge(){
-        return playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("msedge")
-                        .setHeadless(false));
+    public static Browser getBrowser() {
+        return browser;
     }
 
 
@@ -101,6 +83,7 @@ public class BrowserManager {
     public static BrowserContext getContext() {
         return context;
     }
+
 
     //set up with session
     public static void setUpWithSession(String sessionFile) {

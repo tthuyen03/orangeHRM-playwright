@@ -10,8 +10,7 @@ public class ListenerUtils implements ITestListener {
 
     @Override
     public void onTestStart(ITestResult result) {
-        String browserType = result.getTestContext().getCurrentXmlTest().getParameter("browser");
-        BrowserManager.getBrowser(browserType);
+        BrowserManager.setUpBrowser();
     }
 
     @Override

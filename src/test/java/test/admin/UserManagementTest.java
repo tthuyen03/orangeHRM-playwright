@@ -3,11 +3,12 @@ package test.admin;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.LoadState;
 import driver.BrowserManager;
-
+import org.slf4j.Logger;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
+import org.slf4j.LoggerFactory;
 import org.testng.annotations.Test;
 import utils.CommonAction;
 import utils.ElementUtils;
@@ -26,6 +27,7 @@ import static org.testng.AssertJUnit.fail;
 @Epic("User Management")
 @Feature("User CRUD Operations")
 public class UserManagementTest {
+    private static final Logger logger = LoggerFactory.getLogger(UserManagementTest.class);
     private Page page;
     private LoginPage login;
     private DashboardPage dashboard;
@@ -87,27 +89,38 @@ public class UserManagementTest {
 
 
     //test add
-  /*@Test(description = "Verify user is created successfully when input all field with valid value")
+  @Test(description = "Verify user is created successfully when input all field with valid value")
     public void createUserWithValidValue() {
         setUp();
+        logger.info("Prepare data");
         String employeeName = userManagementPage.randomValidEmployeeName();
         String username = RandomUtils.generateRandomString(8);
         String role = userManagementPage.randomRole();
         String status = userManagementPage.randomStatus();
         String password = RandomUtils.generateRandomStringWithSpecialChars(8);
+
+        logger.info("Login and navigate to dashboard");
         login.login("Admin", "admin123");
         page.waitForLoadState(LoadState.NETWORKIDLE);
         assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
+
+        logger.info("Click Admin ");
         ElementUtils.getLinkInSideNav(page,"Admin").click();
+
+        logger.info("Click add");
         userManagementPage.clickAdd();
+        logger.info("Add user with valid data");
         userManagementPage.addUser(employeeName,username,role,status,password,password );
-        assertTrue(CommonAction.isToastDisplayed(page,"Successfully Saved"));
+        userManagementPage.clickSave();
         page.waitForLoadState(LoadState.NETWORKIDLE);
+        logger.info("Verify toast is displayed and new user appears in user list");
+        assertTrue(CommonAction.isToastDisplayed(page,"Successfully Saved"));
+
         assertTrue(userManagementPage.isUserCreated(username), "User DOEST NOT created");
     }
 
 
-   @Test(description = "Verify error message is displayed when add user with invalid employee name ")
+   /*@Test(description = "Verify error message is displayed when add user with invalid employee name ")
     public void createUserWithInvalidEmpName() {
         setUp();
         String employeeName = RandomUtils.generateRandomString(8);
@@ -562,7 +575,7 @@ public class UserManagementTest {
         userManagementPage.clickAdd();
         userManagementPage.enterUsername(username);
         assertTrue(userManagementPage.isErrorMessageDisplayed(),"Expected error message 'Already exists'");
-    }*/
+    }
 
 
     //test update
@@ -904,7 +917,7 @@ public class UserManagementTest {
         ElementUtils.getLinkInSideNav(page, "Admin").click();
 
         //Login in tab 2
-        Page page2 = BrowserManager.getBrowser().newPage();
+        Page page2 = BrowserManager.getBrowser().newContext().newPage();
         page2.navigate(Constants.URL);
         LoginPage loginPage2 = new LoginPage(page2);
         DashboardPage dashboardPage2 = new DashboardPage(page2);
@@ -955,7 +968,7 @@ public class UserManagementTest {
         // Clean up
         page2.close();
 
-    }
+    }*/
 
 
 

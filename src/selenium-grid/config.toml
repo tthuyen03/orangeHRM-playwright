@@ -1,0 +1,10 @@
+[network]
+relax-checks = true
+
+[node]
+detect-drivers = false
+session-timeout = "60"
+
+[[node.v1]]
+max-sessions = 5
+stereotype = '{"browserName": "chrome", "browserVersion": "latest", "platformName": "Linux", "se:cdp": "ws://playwright-node-chrome:4444"}'

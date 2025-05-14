@@ -3,6 +3,7 @@ package web.base;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.WaitUntilState;
+import configuration.Config;
 import web.constants.Constants;
 
 import java.nio.file.Paths;
@@ -19,15 +20,10 @@ public class BasePage {
     }
 
     public void navigateToPage() {
-        page.navigate(Constants.URL,
+        String url = Config.get("URL");
+        page.navigate(url,
                 new Page.NavigateOptions()
                         .setTimeout(60000)
                         .setWaitUntil(WaitUntilState.DOMCONTENTLOADED));
     }
-
-
-
-
-
-
 }

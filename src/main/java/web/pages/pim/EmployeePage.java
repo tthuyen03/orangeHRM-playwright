@@ -46,6 +46,18 @@ public class EmployeePage extends BasePage {
         return statusList.get(rand.nextInt(statusList.size()));
     }
 
+    public String randomExistingEmployeeId() {
+        Random rand = new Random();
+        List<String> employeeId = List.of("0295", "0312","0383");
+        return employeeId.get(rand.nextInt(employeeId.size()));
+    }
+
+    public String randomExistingUsername() {
+        Random rand = new Random();
+        List<String> usernameList = List.of("Ramaarao", "lakshmana2");
+        return usernameList.get(rand.nextInt(usernameList.size()));
+    }
+
     public void selectStatus(){
         if(randomStatus().equals("Enabled")){
             rdoEnabled.click();
@@ -63,15 +75,18 @@ public class EmployeePage extends BasePage {
         btnAdd.click();
     }
 
+    public void uploadImage(String file){
+        FileChooser fileChooser = page.waitForFileChooser(() -> uploadImage.click());
+        fileChooser.setFiles(Paths.get(file));
+    }
 
     public void addEmployee(String firstName, String middleName, String lastName, String empId, String file,
-                            String username, String password, String confirmPass){
+                            String username, String status, String password, String confirmPass){
         inputFirstName.fill(firstName);
         inputMiddleName.fill(middleName);
         inputLastName.fill(lastName);
         inputEmployeeId.fill(empId);
-        FileChooser fileChooser = page.waitForFileChooser(() -> uploadImage.click());
-        fileChooser.setFiles(Paths.get(file));
+        uploadImage(file);
         if(isToggleLoginEnable()){
             inputUsername.fill(username);
             selectStatus();
