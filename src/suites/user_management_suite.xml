@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="UserManagementSuite">
+    <listeners>
+        <listener class-name="utils.ListenerUtils" />
+        <listener class-name="io.qameta.allure.testng.AllureTestNg" />
+
+    </listeners>
+    <test name="UserManagementTests">
+        <parameter name="browser" value="chromium"/>
+        <classes>
+            <class name="test.admin.UserManagementTest"/>
+        </classes>
+    </test>
+</suite>

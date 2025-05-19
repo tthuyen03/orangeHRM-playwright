@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  playwright-grid:
+    build: .
+    container_name: ${docker.container.name}
+    ports:
+      - "${docker.port}:4444"
+    environment:
+      - PLAYWRIGHT_GRID_PORT=4444
+      - PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
+      - PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
+      - NODE_ENV=production
+    volumes:
+      - .:/app
+      - ./test-results:/app/test-results
+      - ./playwright-report:/app/playwright-report
+    networks:
+      - playwright-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4444/status"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 2G
+        reservations:
+          cpus: '1'
+          memory: 1G
+
+networks:
+  playwright-network:
+    driver: bridge

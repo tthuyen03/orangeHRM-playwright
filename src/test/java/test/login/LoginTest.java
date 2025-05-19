@@ -1,0 +1,258 @@
+package test.login;
+
+import com.microsoft.playwright.*;
+import com.microsoft.playwright.options.Cookie;
+import com.microsoft.playwright.options.LoadState;
+import factory.DriverFactory;
+import io.qameta.allure.Step;
+import org.testng.annotations.*;
+import utils.DataDrivenUtils;
+import utils.RetryUtils;
+import web.constants.Constants;
+import web.pages.dashboard.DashboardPage;
+import web.pages.login.LoginPage;
+
+
+import static org.testng.Assert.assertTrue;
+import static org.testng.AssertJUnit.assertEquals;
+
+
+public class LoginTest {
+    private Page page;
+    private LoginPage login;
+    private DashboardPage dashboard;
+
+
+
+    public void setUp(){
+        page = DriverFactory.getPage();
+        login = new LoginPage(page);
+        dashboard = new DashboardPage(page);
+        login.navigateToPage();
+
+    }
+
+
+    @DataProvider(name = "loginData")
+    public Object[][] getLoginData(){
+        return DataDrivenUtils.readDataFromExcel("TestData.xlsx", "LoginData");
+    }
+
+    @Test(description = "Verify login",dataProvider = "loginData", retryAnalyzer = RetryUtils.class)
+    @Step("Login with username: {0}, password: {1}")
+    public void login(String username, String password, String expectedResult){
+        setUp();
+        //login
+        login.login(username,password);
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        switch (expectedResult.toLowerCase()){
+            case "success" -> {
+                assertTrue(dashboard.isDashboardVisible(), "Expected dashboard to be visible");
+                login.checkSession();
+            }
+            case "invalid_credentials" -> assertTrue(login.isInvalidCredentialsVisible(), "Expected invalid credentials message");
+            case "required" -> assertTrue(login.isRequiredVisible(), "Required should be visible");
+        }
+    }
+
+    @Test(description = "Attempt login with wrong credentials multiple times")
+    public void tryLoginAfterFail(){
+        setUp();
+        String falseUsername = "Admin";
+        String falsePassword = "123";
+        String trueUsername = "Admin";
+        String truePassword = "admin123";
+
+        //Login with wrong credentials
+        for(int i = 0; i < 3; i++){
+            login.login(falseUsername,falsePassword);
+            assertTrue(login.isInvalidCredentialsVisible(), "Expected invalid credentials message");
+        }
+
+        //Login with correct credentials
+        login.login(trueUsername, truePassword);
+
+        //Verify login successfully
+        assertTrue(dashboard.isDashboardVisible(), "Expected dashboard to be visible");
+    }
+
+
+    @Test(description = "Check if Forgot Password link works properly")
+    public void checkForgotPasswordLink(){
+        setUp();
+        assertTrue(login.checkLinkForgotPassword(), "Expected Reset Password to be visible");
+    }
+
+
+    @Test(description = "Use Tab to navigate between fields and buttons")
+    public void checkTabButton(){
+        setUp();
+        assertTrue(login.checkTab(), "Expected Tab to navigate between fields and buttons");
+    }
+
+    @Test(description = "Refresh page before timeout")
+    public void refreshPageBeforeTimeout(){
+        setUp();
+        //login with correct credential
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+
+        //Wait page with time < timeout
+        page.waitForTimeout(30_000);
+
+        //Refresh page
+        page.reload();
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+
+        //Verify page remain
+        assertTrue(dashboard.isDashboardVisible(), "User should still be logged in after refresh before session timeout");
+    }
+
+    @Test(description = "Refresh page after timeout")
+    public void refreshPageAfterTimeout(){
+        setUp();
+
+        //login with correct credential
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+
+        //wait page with time > timeout
+        page.waitForTimeout(65_000);
+
+        //Refresh page
+        page.reload();
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+
+        //Verify login page is display when timeout
+        assertTrue(login.isTextLoginVisible(), "User should be redirected to login after session timeout and refresh");
+    }
+
+    /*public void saveSession(){
+        setUp();
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Expected dashboard to be visible");
+        Path sessionPath = Paths.get("session/auth-expired.json");
+        DriverFactory.getContext().storageState(new BrowserContext.StorageStateOptions()
+                .setPath(sessionPath));
+
+    }
+
+    @Test(description = "Login with expired session")
+    public void loginWithExpiredSession(){
+        String expiredSessionPath = "session/auth-expired.json";
+        DriverFactory.setUpWithSession(expiredSessionPath);
+    }*/
+
+
+    @Test(description = "Login in multiple tabs of the same browser")
+    public void loginMultipleTabs(){
+        setUp();
+        //login
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Expected dashboard to be visible");
+
+        //Get cookie in tab 1
+        Cookie cookieInTab1 = login.getCookieByName(DriverFactory.getContext());
+
+        //Create tab 2 and login
+        Page tab2 = DriverFactory.getContext().newPage();
+        tab2.navigate(Constants.URL);
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Expected dashboard to be visible");
+
+        //Get cookie in tab 2
+        Cookie cookieTab2 = login.getCookieByName(DriverFactory.getContext());
+
+        //Verify cookie in 2 tab
+        assertEquals(cookieInTab1.value, cookieTab2.value, "Expected session cookie to be the same in both tabs");
+
+
+    }
+
+    @Test(description = "Logout successfully from the main dashboard or menu")
+    public void logout(){
+        setUp();
+        //login
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Expected dashboard to be visible");
+
+        //logout
+        login.clickLogout();
+        assertTrue(login.isTextLoginVisible(), "User should be redirected to login after session timeout and refresh");
+
+    }
+
+
+    @Test(description = "After logout, pressing the Back button does NOT return to protected page")
+    public void pressBackButtonAfterLogout(){
+        setUp();
+        //login
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Expected dashboard to be visible");
+
+        //logout
+        login.clickLogout();
+        assertTrue(login.isTextLoginVisible(), "User should be redirected to login after session timeout and refresh");
+
+        // press back
+        page.goBack();
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+
+        assertTrue(login.isTextLoginVisible(), "User should be redirected to login after session timeout and refresh");
+
+    }
+
+    @Test(description = "Log in again successfully after logout")
+    public void loginAgainAfterLogout(){
+        setUp();
+        //login
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Expected dashboard to be visible");
+
+        //logout
+        login.clickLogout();
+        assertTrue(login.isTextLoginVisible(), "User should be redirected to login after session timeout and refresh");
+
+        //login again
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Expected dashboard to be visible");
+
+    }
+
+    @Test(description = "Logout in one tab, the other tab also logout")
+    public void logoutInTwoTab(){
+        setUp();
+        //login tab  1
+        login.login("Admin", "admin123");
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        assertTrue(dashboard.isDashboardVisible(), "Expected dashboard to be visible in tab 1");
+
+        //login tab 2
+        Page tab2 = DriverFactory.getContext().newPage();
+        tab2.navigate(Constants.URL);
+        LoginPage loginTab2 = new LoginPage(tab2);
+        loginTab2.login("Admin", "admin123");
+        tab2.waitForLoadState(LoadState.NETWORKIDLE);
+        DashboardPage dashboardTab2 = new DashboardPage(tab2);
+        assertTrue(dashboardTab2.isDashboardVisible(), "Expected dashboard to be visible in Tab 2");
+
+        // Tab 1: logout
+        login.clickLogout();
+        assertTrue(login.isTextLoginVisible(), "User should be redirected to login in Tab 1");
+
+        // Tab 2: reload
+        tab2.reload();
+        tab2.waitForLoadState(LoadState.NETWORKIDLE);
+
+        // verify tab 2 logout
+        assertTrue(loginTab2.isTextLoginVisible(), "Tab 2 should also be logged out after logout in Tab 1");
+
+    }
+}
