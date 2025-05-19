@@ -13,7 +13,7 @@ OrangeHRM Web Application Testing
      - Log defects with clear reproduction steps, expected vs actual results, and supporting evidence such as screenshots.
        
    1.2 Automation Testing
-     - Automate regression and functional tests for key workflows using automation tools and frameworks (e.g., Playwright, TestNG).
+     - Automate regression and functional tests for key workflows.
      - Maintain automation scripts for login, logout, and employee/user management features.
      - Integrate automated tests into the CI/CD pipeline for continuous validation.
 
