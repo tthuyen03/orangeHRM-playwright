@@ -11,7 +11,7 @@ OrangeHRM Web Application Testing
        + Employee Management
      - Conduct UI testing to verify: Field alignment and labels, Button states and behavior, Responsiveness on different screen sizes, Consistency across pages
      - Log defects with clear reproduction steps, expected vs actual results, and supporting evidence such as screenshots.
-     - Link project: https://docs.google.com/spreadsheets/d/1A8LoEFLwkRi8xAISAJ76tQRmRGeRIp54/edit?usp=sharing&ouid=110317160902650096912&rtpof=true&sd=true
+     - [Link project](https://docs.google.com/spreadsheets/d/1A8LoEFLwkRi8xAISAJ76tQRmRGeRIp54/edit?usp=sharing&ouid=110317160902650096912&rtpof=true&sd=true)
        
    1.2 Automation Testing
      - Automate regression and functional tests for key workflows.
