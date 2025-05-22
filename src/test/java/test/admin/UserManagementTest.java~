@@ -88,7 +88,6 @@ public class UserManagementTest {
     @Severity(SeverityLevel.CRITICAL)
     public void createUserWithValidValue() {
         try {
-            setUp();
             String employeeName = userManagementPage.randomValidEmployeeName();
             String username = RandomUtils.generateRandomString(8);
             String role = userManagementPage.randomRole();

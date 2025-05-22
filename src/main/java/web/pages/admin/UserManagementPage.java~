@@ -118,7 +118,7 @@ public class UserManagementPage extends BasePage {
     public String randomValidEmployeeName() {
         Random rand = new Random();
         List<String> employeeNames = List.of(
-                "Peter Mac Anderson", "Ranga Akunuri", "Radha Gupta");
+                "Peter Mac Anderson", "Ranga Akunuri", "Jobin Mathew Sam");
         return employeeNames.get(rand.nextInt(employeeNames.size()));
     }
 

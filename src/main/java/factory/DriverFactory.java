@@ -46,16 +46,14 @@ public class DriverFactory {
         String remotePort = ConfigLoader.getProperty("REMOTE_PORT");
         String wsEndpoint = String.format("ws://%s:%s", remoteUrl, remotePort);
 
-        BrowserType.ConnectOptions options = new BrowserType.ConnectOptions()
-                .setWsEndpoint(wsEndpoint);
-
         return switch (browserName.toLowerCase()) {
-            case "chrome" -> playwright.chromium().connect(options);
-            case "firefox" -> playwright.firefox().connect(options);
-            case "edge" -> playwright.chromium().connect(options);
-            default -> playwright.chromium().connect(options);
+            case "chrome" -> playwright.chromium().connect(wsEndpoint);
+            case "firefox" -> playwright.firefox().connect(wsEndpoint);
+            case "edge" -> playwright.chromium().connect(wsEndpoint);
+            default -> playwright.chromium().connect(wsEndpoint);
         };
     }
+
 
     public static Page getPage() {
         return page;

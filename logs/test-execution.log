@@ -1,0 +1,41 @@
+2025-05-22 20:50:31.422 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-22 20:50:31.427 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-22 20:50:31.428 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-22 20:50:31.626 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\src\suites\user_management_suite.xml
+
+2025-05-22 20:50:49.305 [main] ERROR test.admin.UserManagementTest - Test failed: Cannot invoke "web.pages.admin.UserManagementPage.randomValidEmployeeName()" because "this.userManagementPage" is null
+2025-05-22 20:57:20.286 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-22 20:57:20.291 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-22 20:57:20.292 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-22 20:57:20.508 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\src\suites\user_management_suite.xml
+
+2025-05-22 20:57:34.272 [main] INFO  test.admin.UserManagementTest - Setting up test method
+2025-05-22 20:58:26.319 [main] ERROR test.admin.UserManagementTest - Test failed: Error {
+  message='Timeout 30000ms exceeded.
+  name='TimeoutError
+  stack='TimeoutError: Timeout 30000ms exceeded.
+    at ProgressController.run (C:\Users\ZBOOK\AppData\Local\Temp\playwright-java-4547664871449995285\package\lib\server\progress.js:75:26)
+    at Frame.waitForSelector (C:\Users\ZBOOK\AppData\Local\Temp\playwright-java-4547664871449995285\package\lib\server\frames.js:629:23)
+    at FrameDispatcher.waitForSelector (C:\Users\ZBOOK\AppData\Local\Temp\playwright-java-4547664871449995285\package\lib\server\dispatchers\frameDispatcher.js:105:103)
+    at FrameDispatcher._handleCommand (C:\Users\ZBOOK\AppData\Local\Temp\playwright-java-4547664871449995285\package\lib\server\dispatchers\dispatcher.js:96:40)
+    at DispatcherConnection.dispatch (C:\Users\ZBOOK\AppData\Local\Temp\playwright-java-4547664871449995285\package\lib\server\dispatchers\dispatcher.js:366:39)
+}
+Call log:
+-   - waiting for getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Sara Tencrady")) to be visible
+
+2025-05-22 21:08:47.039 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-22 21:08:47.044 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-22 21:08:47.045 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-22 21:08:47.265 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\src\suites\user_management_suite.xml
+
+2025-05-22 21:09:01.022 [main] INFO  test.admin.UserManagementTest - Setting up test method
+2025-05-22 21:14:20.287 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-22 21:14:20.290 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-22 21:14:20.290 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-22 21:14:20.460 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\src\suites\user_management_suite.xml
+
+2025-05-22 21:14:36.177 [main] INFO  test.admin.UserManagementTest - Setting up test method
