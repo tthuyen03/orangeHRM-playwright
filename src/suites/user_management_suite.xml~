@@ -3,6 +3,7 @@
     <listeners>
         <listener class-name="utils.ListenerUtils" />
         <listener class-name="io.qameta.allure.testng.AllureTestNg" />
+
     </listeners>
     <test name="UserManagementTests">
         <classes>
