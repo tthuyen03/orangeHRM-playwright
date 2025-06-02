@@ -2,7 +2,7 @@ package test.admin;
 
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.LoadState;
-import factory.DriverFactory;
+import browser.BrowserManager;
 import org.testng.annotations.Test;
 import utils.CommonAction;
 import utils.ElementUtils;
@@ -11,7 +11,7 @@ import web.pages.dashboard.DashboardPage;
 import web.pages.login.LoginPage;
 import java.net.URISyntaxException;
 import java.nio.file.Paths;
-import java.util.List;
+
 import static org.testng.Assert.assertTrue;
 
 public class JobTest {
@@ -23,7 +23,7 @@ public class JobTest {
 
 
     public void init() throws URISyntaxException {
-        page = DriverFactory.getPage();
+        page = BrowserManager.getPage();
         login = new LoginPage(page);
         dashboard = new DashboardPage(page);
         jobPage = new JobPage(page);

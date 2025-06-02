@@ -1,22 +1,17 @@
 package test.admin;
 
-import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.LoadState;
-import com.microsoft.playwright.options.WaitForSelectorState;
-import config.ConfigLoader;
-import factory.DriverFactory;
+import browser.BrowserManager;
 import io.qameta.allure.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.*;
 import utils.*;
-import web.constants.Constants;
+
 import web.pages.admin.UserManagementPage;
 import web.pages.dashboard.DashboardPage;
 import web.pages.login.LoginPage;
-
-import java.util.List;
 
 import static org.testng.Assert.*;
 
@@ -25,23 +20,19 @@ import static org.testng.Assert.*;
 public class UserManagementTest {
     private static final Logger logger = LoggerFactory.getLogger(UserManagementTest.class);
     private Page page;
-    private LoginPage login;
-    private DashboardPage dashboard;
     private UserManagementPage userManagementPage;
 
 
 
     public void setUp() {
         logger.info("Setting up test method");
-        page = DriverFactory.getPage();
-        login = new LoginPage(page);
-        dashboard = new DashboardPage(page);
+        page = BrowserManager.getPage();
         userManagementPage = new UserManagementPage(page);
         userManagementPage.navigateToPage();
     }
 
    
-    /*@Test(description = "Verify user creation with valid data", groups = {"create", "smoke"})
+    @Test(description = "Verify user creation with valid data", groups = {"create", "smoke"})
     @Severity(SeverityLevel.CRITICAL)
     public void createUserWithValidValue() {
         try {
@@ -51,28 +42,23 @@ public class UserManagementTest {
             String role = userManagementPage.randomRole();
             String status = userManagementPage.randomStatus();
             String password = RandomUtils.generateRandomStringWithSpecialChars(8);
-
-            logger.info("Login");
-            login.login("Admin", "admin123");
-            page.waitForLoadState(LoadState.NETWORKIDLE);
-            assertTrue(dashboard.isDashboardVisible(), "Dashboard should be visible after successful login");
-            logger.info("Navigate to user management");
             ElementUtils.getLinkInSideNav(page, "Admin").click();
-            logger.info("Click button Add user");
+            logger.info("2.Click button Add user");
             userManagementPage.clickAdd();
-            logger.info("Add user with valid data");
+            logger.info("3.Add user with valid data");
             userManagementPage.addUser(employeeName, username, role, status, password, password);
-            logger.info("Verify success message is displayed");
+            userManagementPage.clickSave();
+            logger.info("4.Verify success message is displayed");
             assertTrue(CommonAction.isToastDisplayed(page, "Successfully Saved"), "Success message not displayed");
             page.waitForLoadState(LoadState.NETWORKIDLE);
-            logger.info("Verify user is created successfully and displayed in user list");
+            logger.info("5.Verify user is created successfully and displayed in user list");
             assertTrue(userManagementPage.isUserCreated(username), "User was not created successfully");
         } catch (Exception e) {
             logger.error("Test failed: {}", e.getMessage());
             AllureUtils.takeScreenshot(page, "createUserWithValidValue_failure");
             throw e;
         }
-    }*/
+    }
 
     /*@Test(description = "Verify error message for invalid employee name-----")
     @Severity(SeverityLevel.NORMAL)
@@ -566,7 +552,7 @@ public class UserManagementTest {
         }
     }*/
 
-    @Test(description = "Verify password strength indicator functionality")
+    /*@Test(description = "Verify password strength indicator functionality")
     @Severity(SeverityLevel.NORMAL)
     public void verifyPasswordStrengthIndicator() {
         try {
@@ -622,7 +608,7 @@ public class UserManagementTest {
         }
     }
 
-    /*@Test(description = "Sort by Employee Name in descending order")
+    @Test(description = "Sort by Employee Name in descending order")
      public void checkSortDescending(){
            setUp();
            logger.info("1. Login and navigate to user management");

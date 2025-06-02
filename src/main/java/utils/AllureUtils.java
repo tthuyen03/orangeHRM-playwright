@@ -9,26 +9,13 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class AllureUtils {
-    
-    @Attachment(value = "{name}", type = "image/png")
-    public static byte[] takeScreenshot(Page page, String name) {
-        try {
-            Path screenshotPath = Paths.get("screenshots", name + ".png");
-            Files.createDirectories(screenshotPath.getParent());
-            
-            byte[] screenshot = page.screenshot(new Page.ScreenshotOptions()
-                    .setPath(screenshotPath)
-                    .setFullPage(true));
-            
-            return screenshot;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new byte[0];
-        }
+    public static void takeScreenshot(Page page, String name) {
+        attachScreenshot(name, page.screenshot(new Page.ScreenshotOptions().setFullPage(true)));
     }
 
-    @Attachment(value = "{name}", type = "text/plain")
-    public static ByteArrayInputStream saveTextLog(String name, String content) {
-        return new ByteArrayInputStream(content.getBytes());
+    @Attachment(value = "{name}", type = "image/png")
+    private static byte[] attachScreenshot(String name, byte[] screenshot) {
+        return screenshot;
     }
+
 } 

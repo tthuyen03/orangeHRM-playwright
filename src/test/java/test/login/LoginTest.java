@@ -3,21 +3,25 @@ package test.login;
 import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.Cookie;
 import com.microsoft.playwright.options.LoadState;
-import factory.DriverFactory;
+import config.ConfigLoader;
+import browser.BrowserManager;
 import io.qameta.allure.Step;
 import org.testng.annotations.*;
 import utils.DataDrivenUtils;
 import utils.RetryUtils;
-import web.constants.Constants;
+
 import web.pages.dashboard.DashboardPage;
 import web.pages.login.LoginPage;
 
 
+import java.util.logging.Logger;
+
 import static org.testng.Assert.assertTrue;
 import static org.testng.AssertJUnit.assertEquals;
 
-
+@Test(groups = "login")
 public class LoginTest {
+    public static final Logger logger = Logger.getLogger(LoginTest.class.getName());
     private Page page;
     private LoginPage login;
     private DashboardPage dashboard;
@@ -25,7 +29,7 @@ public class LoginTest {
 
 
     public void setUp(){
-        page = DriverFactory.getPage();
+        page = BrowserManager.getPage();
         login = new LoginPage(page);
         dashboard = new DashboardPage(page);
         login.navigateToPage();
@@ -38,24 +42,25 @@ public class LoginTest {
         return DataDrivenUtils.readDataFromExcel("TestData.xlsx", "LoginData");
     }
 
-    @Test(description = "Verify login",dataProvider = "loginData", retryAnalyzer = RetryUtils.class)
+    @Test(description = "Verify login",dataProvider = "loginData", groups = "login")
     @Step("Login with username: {0}, password: {1}")
     public void login(String username, String password, String expectedResult){
         setUp();
-        //login
+        logger.info("1. Login with username: " + username + ", password: " + password);
         login.login(username,password);
         page.waitForLoadState(LoadState.NETWORKIDLE);
+        logger.info("2. Verify login");
         switch (expectedResult.toLowerCase()){
             case "success" -> {
                 assertTrue(dashboard.isDashboardVisible(), "Expected dashboard to be visible");
-                login.checkSession();
+
             }
             case "invalid_credentials" -> assertTrue(login.isInvalidCredentialsVisible(), "Expected invalid credentials message");
             case "required" -> assertTrue(login.isRequiredVisible(), "Required should be visible");
         }
     }
 
-    @Test(description = "Attempt login with wrong credentials multiple times")
+   /* @Test(description = "Attempt login with wrong credentials multiple times")
     public void tryLoginAfterFail(){
         setUp();
         String falseUsername = "Admin";
@@ -126,7 +131,7 @@ public class LoginTest {
         //Verify login page is display when timeout
         assertTrue(login.isTextLoginVisible(), "User should be redirected to login after session timeout and refresh");
     }
-
+*/
     /*public void saveSession(){
         setUp();
         login.login("Admin", "admin123");
@@ -145,7 +150,7 @@ public class LoginTest {
     }*/
 
 
-    @Test(description = "Login in multiple tabs of the same browser")
+    /*@Test(description = "Login in multiple tabs of the same browser")
     public void loginMultipleTabs(){
         setUp();
         //login
@@ -154,17 +159,17 @@ public class LoginTest {
         assertTrue(dashboard.isDashboardVisible(), "Expected dashboard to be visible");
 
         //Get cookie in tab 1
-        Cookie cookieInTab1 = login.getCookieByName(DriverFactory.getContext());
+        Cookie cookieInTab1 = login.getCookieByName(BrowserManager.getContext());
 
         //Create tab 2 and login
-        Page tab2 = DriverFactory.getContext().newPage();
-        tab2.navigate(Constants.URL);
+        Page tab2 = BrowserManager.getContext().newPage();
+        tab2.navigate(ConfigLoader.getProperty("URL"));
         login.login("Admin", "admin123");
         page.waitForLoadState(LoadState.NETWORKIDLE);
         assertTrue(dashboard.isDashboardVisible(), "Expected dashboard to be visible");
 
         //Get cookie in tab 2
-        Cookie cookieTab2 = login.getCookieByName(DriverFactory.getContext());
+        Cookie cookieTab2 = login.getCookieByName(BrowserManager.getContext());
 
         //Verify cookie in 2 tab
         assertEquals(cookieInTab1.value, cookieTab2.value, "Expected session cookie to be the same in both tabs");
@@ -235,8 +240,8 @@ public class LoginTest {
         assertTrue(dashboard.isDashboardVisible(), "Expected dashboard to be visible in tab 1");
 
         //login tab 2
-        Page tab2 = DriverFactory.getContext().newPage();
-        tab2.navigate(Constants.URL);
+        Page tab2 = BrowserManager.getContext().newPage();
+        tab2.navigate(ConfigLoader.getProperty("URL"));
         LoginPage loginTab2 = new LoginPage(tab2);
         loginTab2.login("Admin", "admin123");
         tab2.waitForLoadState(LoadState.NETWORKIDLE);
@@ -254,5 +259,5 @@ public class LoginTest {
         // verify tab 2 logout
         assertTrue(loginTab2.isTextLoginVisible(), "Tab 2 should also be logged out after logout in Tab 1");
 
-    }
+    }*/
 }

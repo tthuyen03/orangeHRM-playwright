@@ -4,7 +4,6 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.WaitUntilState;
 import config.ConfigLoader;
-import web.constants.Constants;
 
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;

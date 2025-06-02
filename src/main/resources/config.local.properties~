@@ -1,0 +1,6 @@
+BROWSER=chrome
+URL=https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+REMOTE_URL=localhost
+REMOTE_PORT=4444
+HEADLESS=false
+TARGET=local 

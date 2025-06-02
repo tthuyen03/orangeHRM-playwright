@@ -1,0 +1,262 @@
+2025-05-26 07:30:45.074 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-26 07:30:45.095 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-26 07:30:45.095 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-26 07:30:45.315 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\src\suites\employee_suite.xml
+
+2025-05-26 07:31:14.472 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-26 07:31:19.690 [main] INFO  test.pim.EmployeeTest - 2.Navigating to PIM section via side navigation
+2025-05-26 07:31:20.622 [main] INFO  test.pim.EmployeeTest - 3.Clicking on 'Add'
+2025-05-26 07:31:21.962 [main] INFO  test.pim.EmployeeTest - 4.Filling employee details and submitting with login info
+2025-05-26 07:31:22.931 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: null
+2025-05-26 07:31:22.931 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: nIORMsdF
+2025-05-26 07:31:22.952 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: null
+2025-05-26 07:31:22.954 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: null
+2025-05-26 07:31:22.955 [main] INFO  web.pages.pim.EmployeePage - - Upload image: null
+2025-05-26 07:31:23.032 [main] INFO  test.pim.EmployeeTest - 5.Click Save button
+2025-05-26 07:31:23.086 [main] INFO  test.pim.EmployeeTest - 6.Verifying error message appears
+2025-05-26 07:32:58.983 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-26 07:32:58.988 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-26 07:32:58.988 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-26 07:32:59.198 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\src\suites\employee_suite.xml
+
+2025-05-26 07:33:18.748 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-26 07:33:25.100 [main] INFO  test.pim.EmployeeTest - 2.Navigating to PIM section via side navigation
+2025-05-26 07:33:26.044 [main] INFO  test.pim.EmployeeTest - 3.Clicking on 'Add'
+2025-05-26 07:33:27.398 [main] INFO  test.pim.EmployeeTest - 4.Filling employee details and submitting with login info
+2025-05-26 07:33:27.399 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: 32361794
+2025-05-26 07:33:27.986 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: 36585434
+2025-05-26 07:33:28.011 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: 30673856
+2025-05-26 07:33:28.030 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 12437
+2025-05-26 07:33:28.494 [main] INFO  web.pages.pim.EmployeePage - - Upload image: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\test-classes\data\images.png
+2025-05-26 07:33:28.514 [main] INFO  test.pim.EmployeeTest - 5.Click Save button
+2025-05-26 07:33:28.565 [main] INFO  test.pim.EmployeeTest - 6.Verifying success toast message appears
+2025-05-26 07:33:29.979 [main] INFO  test.pim.EmployeeTest - 5.Verifying Personal Details page is displayed
+2025-05-26 07:33:47.884 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-26 07:33:53.048 [main] INFO  test.pim.EmployeeTest - 2.Navigating to PIM section via side navigation
+2025-05-26 07:33:54.023 [main] INFO  test.pim.EmployeeTest - 3.Clicking on 'Add'
+2025-05-26 07:33:55.387 [main] INFO  test.pim.EmployeeTest - 4.Filling employee details and submitting with login info
+2025-05-26 07:33:55.387 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: Wa3^f9Ow
+2025-05-26 07:33:56.264 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: Gf5*OL8w
+2025-05-26 07:33:56.282 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: Zy1#)JR!
+2025-05-26 07:33:56.306 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 24756
+2025-05-26 07:33:56.555 [main] INFO  web.pages.pim.EmployeePage - - Upload image: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\test-classes\data\images.png
+2025-05-26 07:33:56.568 [main] INFO  test.pim.EmployeeTest - 5.Click Save button
+2025-05-26 07:33:56.612 [main] INFO  test.pim.EmployeeTest - 6.Verifying success toast message appears
+2025-05-26 07:33:57.967 [main] INFO  test.pim.EmployeeTest - 7.Verifying Personal Details page is displayed
+2025-05-26 07:40:30.107 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-26 07:40:30.111 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-26 07:40:30.112 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-26 07:40:30.321 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\src\suites\employee_suite.xml
+
+2025-05-26 07:40:52.374 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-26 07:40:58.193 [main] INFO  test.pim.EmployeeTest - 2.Navigating to PIM section via side navigation
+2025-05-26 07:40:59.153 [main] INFO  test.pim.EmployeeTest - 3.Clicking on 'Add'
+2025-05-26 07:41:00.497 [main] INFO  test.pim.EmployeeTest - 4.Filling employee details 
+2025-05-26 07:41:00.497 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: 7dDKdGlE
+2025-05-26 07:41:01.354 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: XzX93TQI
+2025-05-26 07:41:01.374 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: e1lJ23OS
+2025-05-26 07:41:01.387 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 13224
+2025-05-26 07:41:01.473 [main] INFO  web.pages.pim.EmployeePage - - Upload image: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\classes\data\hinh anh.png
+2025-05-26 07:41:01.493 [main] INFO  test.pim.EmployeeTest - 5.Click Save button
+2025-05-26 07:41:01.541 [main] INFO  test.pim.EmployeeTest - 6.Verifying success toast message appears
+2025-05-26 07:41:04.474 [main] INFO  test.pim.EmployeeTest - 7.Verifying Personal Details page is displayed
+2025-05-26 07:41:23.003 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-26 07:41:29.335 [main] INFO  test.pim.EmployeeTest - 2.Navigating to PIM section via side navigation
+2025-05-26 07:41:30.286 [main] INFO  test.pim.EmployeeTest - 3.Clicking on 'Add'
+2025-05-26 07:41:31.887 [main] INFO  test.pim.EmployeeTest - 4.Filling employee details 
+2025-05-26 07:41:31.887 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: VV0oRa33
+2025-05-26 07:41:32.747 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: s8Z53use
+2025-05-26 07:41:32.770 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: kWvf9R56
+2025-05-26 07:41:32.794 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 63215
+2025-05-26 07:41:32.870 [main] INFO  web.pages.pim.EmployeePage - - Upload image: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\classes\data\KyTu@@.jpg
+2025-05-26 07:41:32.885 [main] INFO  test.pim.EmployeeTest - 5.Click Save button
+2025-05-26 07:41:32.931 [main] INFO  test.pim.EmployeeTest - 6.Verifying success toast message appears
+2025-05-26 07:41:35.837 [main] INFO  test.pim.EmployeeTest - 7.Verifying Personal Details page is displayed
+2025-05-26 07:41:53.619 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-26 07:41:59.142 [main] INFO  test.pim.EmployeeTest - 2.Navigating to PIM section via side navigation
+2025-05-26 07:41:59.994 [main] INFO  test.pim.EmployeeTest - 3.Clicking on 'Add'
+2025-05-26 07:42:01.271 [main] INFO  test.pim.EmployeeTest - 4.Filling employee details 
+2025-05-26 07:42:01.271 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: 53467773
+2025-05-26 07:42:02.162 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: 47266409
+2025-05-26 07:42:02.185 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: 85531925
+2025-05-26 07:42:02.201 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 52311
+2025-05-26 07:42:02.282 [main] INFO  web.pages.pim.EmployeePage - - Upload image: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\classes\data\hinh.PNG
+2025-05-26 07:42:02.295 [main] INFO  test.pim.EmployeeTest - 5.Click Save button
+2025-05-26 07:42:02.339 [main] INFO  test.pim.EmployeeTest - 6.Verifying success toast message appears
+2025-05-26 07:42:05.252 [main] INFO  test.pim.EmployeeTest - 7.Verifying Personal Details page is displayed
+2025-05-26 07:51:25.426 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-26 07:51:25.431 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-26 07:51:25.432 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-26 07:51:25.597 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\src\suites\employee_suite.xml
+
+2025-05-26 07:51:46.673 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-26 07:51:52.430 [main] INFO  test.pim.EmployeeTest - 2.Navigating to PIM section via side navigation
+2025-05-26 07:51:53.350 [main] INFO  test.pim.EmployeeTest - 3.Clicking on 'Add'
+2025-05-26 07:51:54.746 [main] INFO  test.pim.EmployeeTest - 4.Filling employee details 
+2025-05-26 07:51:54.749 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: oMYlbGr5
+2025-05-26 07:51:55.703 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: null
+2025-05-26 07:52:04.535 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-26 07:52:12.399 [main] INFO  test.pim.EmployeeTest - 2.Navigating to PIM section via side navigation
+2025-05-26 07:52:13.759 [main] INFO  test.pim.EmployeeTest - 3.Clicking on 'Add'
+2025-05-26 07:52:16.003 [main] INFO  test.pim.EmployeeTest - 4.Filling employee details 
+2025-05-26 07:52:16.003 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: JpFz0yot
+2025-05-26 07:52:17.398 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: cdX2aRz5
+2025-05-26 07:52:17.419 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: D2CIpfwG
+2025-05-26 07:52:17.433 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 51324
+2025-05-26 07:52:20.093 [main] INFO  web.pages.pim.EmployeePage - - Upload image: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\classes\data\test.docx
+2025-05-26 07:52:20.119 [main] INFO  test.pim.EmployeeTest - 5.Click Save button
+2025-05-26 07:52:20.158 [main] INFO  test.pim.EmployeeTest - 6.Verifying error message appears
+2025-05-26 07:52:29.728 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-26 07:52:37.383 [main] INFO  test.pim.EmployeeTest - 2.Navigating to PIM section via side navigation
+2025-05-26 07:52:38.352 [main] INFO  test.pim.EmployeeTest - 3.Clicking on 'Add'
+2025-05-26 07:52:39.733 [main] INFO  test.pim.EmployeeTest - 4.Filling employee details 
+2025-05-26 07:52:39.734 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: EHCLiGf1
+2025-05-26 07:52:40.618 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: D1qXf9bJ
+2025-05-26 07:52:40.646 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: 8FA7KNdA
+2025-05-26 07:52:40.662 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 96118
+2025-05-26 07:52:40.844 [main] INFO  web.pages.pim.EmployeePage - - Upload image: null
+2025-05-26 08:06:18.045 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-26 08:06:18.050 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-26 08:06:18.050 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-26 08:06:18.256 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\src\suites\employee_suite.xml
+
+2025-05-26 08:06:38.742 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-26 08:06:44.507 [main] INFO  test.pim.EmployeeTest - 2.Navigating to PIM section via side navigation
+2025-05-26 08:06:45.453 [main] INFO  test.pim.EmployeeTest - 3.Clicking on 'Add'
+2025-05-26 08:06:46.583 [main] INFO  test.pim.EmployeeTest - 4.Filling employee details 
+2025-05-26 08:06:46.583 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: scQn3n4z
+2025-05-26 08:06:47.082 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: null
+2025-05-26 08:06:47.083 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: S2sGzoVY
+2025-05-26 08:06:47.108 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 59334
+2025-05-26 08:06:47.642 [main] INFO  web.pages.pim.EmployeePage - - Upload image: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\test-classes\data\images.png
+2025-05-26 08:06:47.663 [main] INFO  test.pim.EmployeeTest - 5.Click Save button
+2025-05-26 08:06:47.701 [main] INFO  test.pim.EmployeeTest - 6.Verifying success toast message appears
+2025-05-26 08:06:49.578 [main] INFO  test.pim.EmployeeTest - 7.Verifying Personal Details page is displayed
+2025-05-26 08:07:11.263 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-26 08:07:20.868 [main] INFO  test.pim.EmployeeTest - 2.Navigating to PIM section via side navigation
+2025-05-26 08:07:22.497 [main] INFO  test.pim.EmployeeTest - 3.Clicking on 'Add'
+2025-05-26 08:07:24.543 [main] INFO  test.pim.EmployeeTest - 4.Filling employee details 
+2025-05-26 08:07:24.544 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: kI9TFQis6TzWReULNtvUqgLknPOsYzjArk
+2025-05-26 08:07:38.001 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: null
+2025-05-26 08:07:38.001 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: GUfD0HgKOwOdA7i7S3J1tMqyaHqrNzoDHJ
+2025-05-26 08:07:38.026 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 11314
+2025-05-26 08:07:38.502 [main] INFO  web.pages.pim.EmployeePage - - Upload image: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\test-classes\data\images.png
+2025-05-26 08:07:38.516 [main] INFO  test.pim.EmployeeTest - 5.Click Save button
+2025-05-26 08:07:38.555 [main] INFO  test.pim.EmployeeTest - 6.Verifying error message appears
+2025-05-26 08:07:46.214 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-26 08:07:52.291 [main] INFO  test.pim.EmployeeTest - 2.Navigating to PIM section via side navigation
+2025-05-26 08:07:53.270 [main] INFO  test.pim.EmployeeTest - 3.Clicking on 'Add'
+2025-05-26 08:07:54.689 [main] INFO  test.pim.EmployeeTest - 4.Filling employee details 
+2025-05-26 08:07:54.689 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: ZWBu9A3y
+2025-05-26 08:07:55.557 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: qP1OlkAa
+2025-05-26 08:07:55.575 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: 5V6lNQLc
+2025-05-26 08:07:55.590 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 24819
+2025-05-26 08:07:55.706 [main] INFO  web.pages.pim.EmployeePage - - Upload image: null
+2025-05-26 08:07:55.706 [main] INFO  test.pim.EmployeeTest - 5.Click Save button
+2025-05-26 08:07:55.738 [main] INFO  test.pim.EmployeeTest - 6.Verifying success toast message appears
+2025-05-26 08:07:57.600 [main] INFO  test.pim.EmployeeTest - 7.Verifying Personal Details page is displayed
+2025-05-26 08:10:54.219 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-26 08:10:54.224 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-26 08:10:54.226 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-26 08:10:54.497 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\src\suites\employee_suite.xml
+
+2025-05-26 08:11:14.616 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-26 08:11:20.712 [main] INFO  test.pim.EmployeeTest - 2.Navigating to PIM section via side navigation
+2025-05-26 08:11:21.580 [main] INFO  test.pim.EmployeeTest - 3.Clicking on 'Add'
+2025-05-26 08:11:22.994 [main] INFO  test.pim.EmployeeTest - 4.Filling employee details 
+2025-05-26 08:11:22.995 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: vj5NhCJEPoSirWR97OTRStTDw8UM4tj4TF
+2025-05-26 08:11:23.876 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: null
+2025-05-26 08:11:23.876 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: plpoDRuOaxEuxb1jzrN9ipquha3OvZJSSE
+2025-05-26 08:11:23.897 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id:  0367
+2025-05-26 08:11:24.030 [main] INFO  web.pages.pim.EmployeePage - - Upload image: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\test-classes\data\images.png
+2025-05-26 08:11:24.047 [main] INFO  test.pim.EmployeeTest - 5.Click Save button
+2025-05-26 08:11:24.095 [main] INFO  test.pim.EmployeeTest - 6.Verifying error message appears
+2025-05-26 08:11:31.650 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-26 08:11:37.248 [main] INFO  test.pim.EmployeeTest - 2.Navigating to PIM section via side navigation
+2025-05-26 08:11:38.108 [main] INFO  test.pim.EmployeeTest - 3.Clicking on 'Add'
+2025-05-26 08:11:39.509 [main] INFO  test.pim.EmployeeTest - 4.Filling employee details 
+2025-05-26 08:11:39.509 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: 2iUE8GH35kU4S6zlMuvwS6F3rfCS5uQAFe
+2025-05-26 08:11:40.357 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: null
+2025-05-26 08:11:40.358 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: XfQO5UGlCCf6hynkn4Lk5CShXsOz9Su6NM
+2025-05-26 08:11:40.379 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 13224 
+2025-05-26 08:11:40.502 [main] INFO  web.pages.pim.EmployeePage - - Upload image: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\test-classes\data\images.png
+2025-05-26 08:11:40.517 [main] INFO  test.pim.EmployeeTest - 5.Click Save button
+2025-05-26 08:11:40.561 [main] INFO  test.pim.EmployeeTest - 6.Verifying error message appears
+2025-05-26 08:11:47.938 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-26 08:11:53.655 [main] INFO  test.pim.EmployeeTest - 2.Navigating to PIM section via side navigation
+2025-05-26 08:11:54.598 [main] INFO  test.pim.EmployeeTest - 3.Clicking on 'Add'
+2025-05-26 08:11:55.928 [main] INFO  test.pim.EmployeeTest - 4.Filling employee details 
+2025-05-26 08:11:55.929 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: n7JP6L2xvhjg9KLknbbDfouMsQqmczerol
+2025-05-26 08:11:56.800 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: null
+2025-05-26 08:11:56.800 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: qDxHfWXsshiVFjVwTCCDc1yVXOxzg24MM4
+2025-05-26 08:11:56.817 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 13224
+2025-05-26 08:11:57.123 [main] INFO  web.pages.pim.EmployeePage - - Upload image: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\test-classes\data\images.png
+2025-05-26 08:11:57.140 [main] INFO  test.pim.EmployeeTest - 5.Click Save button
+2025-05-26 08:11:57.180 [main] INFO  test.pim.EmployeeTest - 6.Verifying error message appears
+2025-05-26 08:15:01.861 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-26 08:15:01.865 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-26 08:15:01.866 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-26 08:15:02.056 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\src\suites\employee_suite.xml
+
+2025-05-26 08:15:20.108 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-26 08:15:26.312 [main] INFO  test.pim.EmployeeTest - 2.Navigating to PIM section via side navigation
+2025-05-26 08:15:27.180 [main] INFO  test.pim.EmployeeTest - 3.Clicking on 'Add'
+2025-05-26 08:15:28.509 [main] INFO  test.pim.EmployeeTest - 4.Filling employee details and submitting with login info
+2025-05-26 08:15:29.938 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: T3qluUOB
+2025-05-26 08:15:29.954 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: bFClhbD6
+2025-05-26 08:15:29.978 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: baw2p8Og
+2025-05-26 08:15:29.996 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 42103
+2025-05-26 08:15:30.092 [main] INFO  web.pages.pim.EmployeePage - - Upload image: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\test-classes\data\images.png
+2025-05-26 08:15:30.206 [main] INFO  test.pim.EmployeeTest - 5.Click Save button
+2025-05-26 08:15:30.249 [main] INFO  test.pim.EmployeeTest - 6.Verifying error message appears
+2025-05-26 08:15:38.552 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-26 08:15:43.595 [main] INFO  test.pim.EmployeeTest - 2.Navigating to PIM section via side navigation
+2025-05-26 08:15:44.575 [main] INFO  test.pim.EmployeeTest - 3.Clicking on 'Add'
+2025-05-26 08:15:45.880 [main] INFO  test.pim.EmployeeTest - 4.Filling employee details and submitting with login info
+2025-05-26 08:15:46.826 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: pzdxU1at
+2025-05-26 08:15:46.843 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: wAUx6Yfd
+2025-05-26 08:15:46.862 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: jfCgmQdK
+2025-05-26 08:15:46.879 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 19437
+2025-05-26 08:15:46.971 [main] INFO  web.pages.pim.EmployeePage - - Upload image: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\test-classes\data\images.png
+2025-05-26 08:15:47.080 [main] INFO  test.pim.EmployeeTest - 5.Click Save button
+2025-05-26 08:15:47.132 [main] INFO  test.pim.EmployeeTest - 6.Verifying error message appears
+2025-05-26 08:15:54.840 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-26 08:16:00.287 [main] INFO  test.pim.EmployeeTest - 2.Navigating to PIM section via side navigation
+2025-05-26 08:16:01.599 [main] INFO  test.pim.EmployeeTest - 3.Clicking on 'Add'
+2025-05-26 08:16:04.295 [main] INFO  test.pim.EmployeeTest - 4.Filling employee details and submitting with login info
+2025-05-26 08:16:05.438 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: YbgBbJGl
+2025-05-26 08:16:05.451 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: Aw2lbpVP
+2025-05-26 08:16:05.468 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: r1BW2uLb
+2025-05-26 08:16:05.480 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 38206
+2025-05-26 08:16:05.564 [main] INFO  web.pages.pim.EmployeePage - - Upload image: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\test-classes\data\images.png
+2025-05-26 08:16:05.653 [main] INFO  test.pim.EmployeeTest - 5.Click Save button
+2025-05-26 08:16:05.695 [main] INFO  test.pim.EmployeeTest - 6.Verifying error message appears
+2025-05-26 08:16:12.602 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-26 08:16:18.973 [main] INFO  test.pim.EmployeeTest - 2.Navigating to PIM section via side navigation
+2025-05-26 08:16:19.888 [main] INFO  test.pim.EmployeeTest - 3.Clicking on 'Add'
+2025-05-26 08:16:21.277 [main] INFO  test.pim.EmployeeTest - 4.Filling employee details and submitting with login info
+2025-05-26 08:16:22.207 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: xKtWgWUp
+2025-05-26 08:16:22.220 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: zoqRr3re
+2025-05-26 08:16:22.235 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: aX6Hqeyz
+2025-05-26 08:16:22.247 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 75985
+2025-05-26 08:16:22.335 [main] INFO  web.pages.pim.EmployeePage - - Upload image: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\test-classes\data\images.png
+2025-05-26 08:16:22.424 [main] INFO  test.pim.EmployeeTest - 5.Click Save button
+2025-05-26 08:16:22.463 [main] INFO  test.pim.EmployeeTest - 6.Verifying error message appears
+2025-05-26 08:16:29.843 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-26 08:16:35.639 [main] INFO  test.pim.EmployeeTest - 2.Navigating to PIM section via side navigation
+2025-05-26 08:16:36.519 [main] INFO  test.pim.EmployeeTest - 3.Clicking on 'Add'
+2025-05-26 08:16:37.717 [main] INFO  test.pim.EmployeeTest - 4.Filling employee details and submitting with login info
+2025-05-26 08:16:38.668 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: y9VQzmAf
+2025-05-26 08:16:38.683 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: WbsM8JIW
+2025-05-26 08:16:38.699 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: mzeobVfB
+2025-05-26 08:16:38.712 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 91244
+2025-05-26 08:16:38.796 [main] INFO  web.pages.pim.EmployeePage - - Upload image: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\test-classes\data\images.png
+2025-05-26 08:16:38.913 [main] INFO  test.pim.EmployeeTest - 5.Click Save button
+2025-05-26 08:16:38.969 [main] INFO  test.pim.EmployeeTest - 6.Verifying error message appears

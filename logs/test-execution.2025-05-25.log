@@ -1,0 +1,407 @@
+2025-05-25 16:00:25.593 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 16:00:25.616 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 16:00:25.616 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 16:00:25.749 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\src\suites\user_management_suite.xml
+
+2025-05-25 16:01:08.772 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 16:01:08.776 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 16:01:08.777 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 16:01:08.973 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\src\suites\employee_suite.xml
+
+2025-05-25 16:01:36.753 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-25 16:01:41.814 [main] INFO  test.pim.EmployeeTest - 2.Verifying dashboard is visible after login
+2025-05-25 16:01:41.847 [main] INFO  test.pim.EmployeeTest - 3.Navigating to PIM section via side navigation
+2025-05-25 16:01:42.781 [main] INFO  test.pim.EmployeeTest - 4.Clicking on 'Add Employee'
+2025-05-25 16:01:44.090 [main] INFO  test.pim.EmployeeTest - 5.Filling employee details and submitting without login info
+2025-05-25 16:09:42.407 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 16:09:42.411 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 16:09:42.412 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 16:09:42.603 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\src\suites\employee_suite.xml
+
+2025-05-25 16:10:03.963 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-25 16:10:09.887 [main] INFO  test.pim.EmployeeTest - 2.Verifying dashboard is visible after login
+2025-05-25 16:10:09.966 [main] INFO  test.pim.EmployeeTest - 3.Navigating to PIM section via side navigation
+2025-05-25 16:10:10.941 [main] INFO  test.pim.EmployeeTest - 4.Clicking on 'Add Employee'
+2025-05-25 16:10:12.523 [main] INFO  test.pim.EmployeeTest - 5.Filling employee details and submitting without login info
+2025-05-25 16:10:12.524 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: gLfrQ8bE
+2025-05-25 16:10:13.438 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: KgAz6ILs
+2025-05-25 16:10:13.483 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: GkuaD745
+2025-05-25 16:10:13.510 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 81135
+2025-05-25 16:25:28.584 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 16:25:28.588 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 16:25:28.588 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 16:25:28.768 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\src\suites\employee_suite.xml
+
+2025-05-25 16:25:49.802 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-25 16:25:56.027 [main] INFO  test.pim.EmployeeTest - 2.Verifying dashboard is visible after login
+2025-05-25 16:25:56.051 [main] INFO  test.pim.EmployeeTest - 3.Navigating to PIM section via side navigation
+2025-05-25 16:25:56.926 [main] INFO  test.pim.EmployeeTest - 4.Clicking on 'Add Employee'
+2025-05-25 16:25:58.256 [main] INFO  test.pim.EmployeeTest - 5.Filling employee details and submitting without login info
+2025-05-25 16:25:58.257 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: LEL4BQO8
+2025-05-25 16:25:59.161 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: 2T94SjY0
+2025-05-25 16:25:59.220 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: pSFqRvGH
+2025-05-25 16:25:59.243 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 54847
+2025-05-25 16:30:51.259 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 16:30:51.262 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 16:30:51.263 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 16:30:51.407 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\src\suites\employee_suite.xml
+
+2025-05-25 16:31:12.248 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-25 16:31:19.724 [main] INFO  test.pim.EmployeeTest - 2.Verifying dashboard is visible after login
+2025-05-25 16:31:19.746 [main] INFO  test.pim.EmployeeTest - 3.Navigating to PIM section via side navigation
+2025-05-25 16:31:20.914 [main] INFO  test.pim.EmployeeTest - 4.Clicking on 'Add Employee'
+2025-05-25 16:31:22.858 [main] INFO  test.pim.EmployeeTest - 5.Filling employee details and submitting without login info
+2025-05-25 16:31:22.859 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: LnC2Ilrw
+2025-05-25 16:31:23.708 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: W4WFttvy
+2025-05-25 16:31:23.732 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: R8dl6q0Z
+2025-05-25 16:31:23.751 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 47347
+2025-05-25 16:31:24.082 [main] INFO  web.pages.pim.EmployeePage - - Upload image: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\classes\data\images.png
+2025-05-25 16:34:17.583 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 16:34:17.587 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 16:34:17.588 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 16:34:17.756 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\src\suites\employee_suite.xml
+
+2025-05-25 16:34:40.023 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-25 16:34:45.838 [main] INFO  test.pim.EmployeeTest - 2.Verifying dashboard is visible after login
+2025-05-25 16:34:45.883 [main] INFO  test.pim.EmployeeTest - 3.Navigating to PIM section via side navigation
+2025-05-25 16:34:46.853 [main] INFO  test.pim.EmployeeTest - 4.Clicking on 'Add Employee'
+2025-05-25 16:34:48.206 [main] INFO  test.pim.EmployeeTest - 5.Filling employee details and submitting without login info
+2025-05-25 16:34:48.206 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: 1LM2EeZS
+2025-05-25 16:34:48.652 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: XKJl9wZg
+2025-05-25 16:34:48.673 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: C3tvdL6p
+2025-05-25 16:34:48.692 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 50537
+2025-05-25 16:34:49.128 [main] INFO  web.pages.pim.EmployeePage - - Upload image: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\classes\data\images.png
+2025-05-25 16:36:37.536 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 16:36:37.540 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 16:36:37.541 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 16:36:37.745 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\src\suites\employee_suite.xml
+
+2025-05-25 16:36:58.965 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-25 16:37:09.258 [main] INFO  test.pim.EmployeeTest - 2.Verifying dashboard is visible after login
+2025-05-25 16:37:09.284 [main] INFO  test.pim.EmployeeTest - 3.Navigating to PIM section via side navigation
+2025-05-25 16:37:10.666 [main] INFO  test.pim.EmployeeTest - 4.Clicking on 'Add Employee'
+2025-05-25 16:37:12.502 [main] INFO  test.pim.EmployeeTest - 5.Filling employee details and submitting without login info
+2025-05-25 16:37:12.503 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: Dr3xCZiM
+2025-05-25 16:37:13.384 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: TWViBomm
+2025-05-25 16:37:13.405 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: N7y9uXu3
+2025-05-25 16:37:13.423 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 05352
+2025-05-25 16:37:13.779 [main] INFO  web.pages.pim.EmployeePage - - Upload image: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\classes\data\images.png
+2025-05-25 16:44:26.624 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 16:44:26.627 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 16:44:26.628 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 16:44:26.807 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\src\suites\employee_suite.xml
+
+2025-05-25 16:44:47.869 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-25 16:44:54.194 [main] INFO  test.pim.EmployeeTest - 2.Verifying dashboard is visible after login
+2025-05-25 16:44:54.216 [main] INFO  test.pim.EmployeeTest - 3.Navigating to PIM section via side navigation
+2025-05-25 16:44:56.374 [main] INFO  test.pim.EmployeeTest - 4.Clicking on 'Add Employee'
+2025-05-25 16:44:58.145 [main] INFO  test.pim.EmployeeTest - 5.Filling employee details and submitting without login info
+2025-05-25 16:44:58.145 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: P8RkXFh6
+2025-05-25 16:44:59.018 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: 1LEuoygM
+2025-05-25 16:44:59.039 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: S8wxNr6b
+2025-05-25 16:44:59.057 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 03812
+2025-05-25 16:44:59.502 [main] INFO  web.pages.pim.EmployeePage - - Upload image: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\test-classes\data\images.png
+2025-05-25 16:47:05.356 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 16:47:05.360 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 16:47:05.361 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 16:47:05.543 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\src\suites\employee_suite.xml
+
+2025-05-25 16:47:37.606 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 16:47:37.610 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 16:47:37.611 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 16:47:37.766 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\src\suites\employee_suite.xml
+
+2025-05-25 16:47:59.421 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-25 16:48:06.577 [main] INFO  test.pim.EmployeeTest - 2.Verifying dashboard is visible after login
+2025-05-25 16:48:06.643 [main] INFO  test.pim.EmployeeTest - 3.Navigating to PIM section via side navigation
+2025-05-25 16:48:08.027 [main] INFO  test.pim.EmployeeTest - 4.Clicking on 'Add Employee'
+2025-05-25 16:48:09.514 [main] INFO  test.pim.EmployeeTest - 5.Filling employee details and submitting without login info
+2025-05-25 16:48:09.515 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: HNwpOnBf
+2025-05-25 16:48:10.352 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: Al4BftVF
+2025-05-25 16:48:10.372 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: uB94Xac9
+2025-05-25 16:48:10.392 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 71357
+2025-05-25 16:48:10.743 [main] INFO  web.pages.pim.EmployeePage - - Upload image: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\test-classes\data\images.png
+2025-05-25 20:27:40.218 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 20:27:40.223 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 20:27:40.223 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 20:27:40.424 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\src\suites\employee_suite.xml
+
+2025-05-25 20:28:04.493 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-25 20:28:10.202 [main] INFO  test.pim.EmployeeTest - 2.Verifying dashboard is visible after login
+2025-05-25 20:28:10.228 [main] INFO  test.pim.EmployeeTest - 3.Navigating to PIM section via side navigation
+2025-05-25 20:28:11.125 [main] INFO  test.pim.EmployeeTest - 4.Clicking on 'Add'
+2025-05-25 20:28:12.497 [main] INFO  test.pim.EmployeeTest - 5.Filling employee details and submitting without login info
+2025-05-25 20:28:12.497 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: LetpnI47
+2025-05-25 20:28:13.361 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: ikcuuX1L
+2025-05-25 20:28:13.381 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: LRbVt1oB
+2025-05-25 20:28:13.400 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 84646
+2025-05-25 20:28:13.489 [main] INFO  web.pages.pim.EmployeePage - - Upload image: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\classes\data\images.png
+2025-05-25 20:29:57.525 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 20:29:57.529 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 20:29:57.530 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 20:29:57.716 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\src\suites\employee_suite.xml
+
+2025-05-25 20:30:33.310 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-25 20:31:09.022 [main] INFO  test.pim.EmployeeTest - 2.Verifying dashboard is visible after login
+2025-05-25 20:31:09.048 [main] INFO  test.pim.EmployeeTest - 3.Navigating to PIM section via side navigation
+2025-05-25 20:31:14.445 [main] INFO  test.pim.EmployeeTest - 4.Clicking on 'Add'
+2025-05-25 20:31:15.872 [main] INFO  test.pim.EmployeeTest - 5.Filling employee details and submitting without login info
+2025-05-25 20:31:15.872 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: ARDv2jaZ
+2025-05-25 20:31:16.730 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: iYsYCXlG
+2025-05-25 20:31:16.750 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: a4f0vJdy
+2025-05-25 20:31:16.770 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 93232
+2025-05-25 20:31:18.810 [main] INFO  web.pages.pim.EmployeePage - - Upload image: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\classes\data\images.png
+2025-05-25 20:32:22.648 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 20:32:22.653 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 20:32:22.653 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 20:32:22.833 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\src\suites\employee_suite.xml
+
+2025-05-25 20:32:41.899 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-25 20:32:46.562 [main] INFO  test.pim.EmployeeTest - 2.Verifying dashboard is visible after login
+2025-05-25 20:32:46.586 [main] INFO  test.pim.EmployeeTest - 3.Navigating to PIM section via side navigation
+2025-05-25 20:32:47.443 [main] INFO  test.pim.EmployeeTest - 4.Clicking on 'Add'
+2025-05-25 20:32:48.545 [main] INFO  test.pim.EmployeeTest - 5.Filling employee details and submitting without login info
+2025-05-25 20:32:48.545 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: 8xkDQH52
+2025-05-25 20:32:49.451 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: q6NMmzCy
+2025-05-25 20:32:49.472 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: cLhYagyh
+2025-05-25 20:32:49.486 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 12779
+2025-05-25 20:32:49.574 [main] INFO  web.pages.pim.EmployeePage - - Upload image: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\test-classes\data\images.png
+2025-05-25 20:34:20.969 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 20:34:20.973 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 20:34:20.973 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 20:34:21.174 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\src\suites\employee_suite.xml
+
+2025-05-25 20:34:46.132 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-25 20:35:14.145 [main] INFO  test.pim.EmployeeTest - 2.Verifying dashboard is visible after login
+2025-05-25 20:35:14.170 [main] INFO  test.pim.EmployeeTest - 3.Navigating to PIM section via side navigation
+2025-05-25 20:35:15.053 [main] INFO  test.pim.EmployeeTest - 4.Clicking on 'Add'
+2025-05-25 20:35:16.100 [main] INFO  test.pim.EmployeeTest - 5.Filling employee details and submitting without login info
+2025-05-25 20:35:16.100 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: e1G0CbWV
+2025-05-25 20:35:16.954 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: ADBD864j
+2025-05-25 20:35:16.974 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: 0tYRln7D
+2025-05-25 20:35:16.991 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 13733
+2025-05-25 20:35:17.076 [main] INFO  web.pages.pim.EmployeePage - - Upload image: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\test-classes\data\images.png
+2025-05-25 20:40:31.240 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 20:40:31.243 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 20:40:31.243 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 20:40:31.408 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\src\suites\employee_suite.xml
+
+2025-05-25 20:40:49.545 [main] INFO  test.pim.EmployeeTest - File path: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\test-classes\data\images.png
+2025-05-25 20:40:49.546 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-25 20:40:55.799 [main] INFO  test.pim.EmployeeTest - 2.Verifying dashboard is visible after login
+2025-05-25 20:40:55.824 [main] INFO  test.pim.EmployeeTest - 3.Navigating to PIM section via side navigation
+2025-05-25 20:40:56.956 [main] INFO  test.pim.EmployeeTest - 4.Clicking on 'Add'
+2025-05-25 20:40:58.338 [main] INFO  test.pim.EmployeeTest - 5.Filling employee details and submitting without login info
+2025-05-25 20:40:58.338 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: H0YI0yit
+2025-05-25 20:40:59.245 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: zQW6sJNN
+2025-05-25 20:40:59.264 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: 4FEXbRBW
+2025-05-25 20:40:59.282 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 49227
+2025-05-25 20:40:59.471 [main] INFO  web.pages.pim.EmployeePage - - Upload image: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\test-classes\data\images.png
+2025-05-25 20:40:59.487 [main] INFO  test.pim.EmployeeTest - 6.Click Save button
+2025-05-25 20:40:59.545 [main] INFO  test.pim.EmployeeTest - 7.Verifying success toast message appears
+2025-05-25 20:41:01.457 [main] INFO  test.pim.EmployeeTest - 7.Verifying employee was actually created in the list
+2025-05-25 20:47:28.756 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 20:47:28.759 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 20:47:28.759 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 20:47:28.912 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\src\suites\employee_suite.xml
+
+2025-05-25 20:47:46.629 [main] INFO  test.pim.EmployeeTest - File path: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\test-classes\data\images.png
+2025-05-25 20:47:46.630 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-25 20:47:51.858 [main] INFO  test.pim.EmployeeTest - 2.Verifying dashboard is visible after login
+2025-05-25 20:47:51.878 [main] INFO  test.pim.EmployeeTest - 3.Navigating to PIM section via side navigation
+2025-05-25 20:47:52.766 [main] INFO  test.pim.EmployeeTest - 4.Clicking on 'Add'
+2025-05-25 20:47:54.115 [main] INFO  test.pim.EmployeeTest - 5.Filling employee details and submitting without login info
+2025-05-25 20:47:54.115 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: 6XORXbgc
+2025-05-25 20:47:54.566 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: 0ujjctmC
+2025-05-25 20:47:54.584 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: nl8JS0Nh
+2025-05-25 20:47:54.600 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 25763
+2025-05-25 20:47:55.056 [main] INFO  web.pages.pim.EmployeePage - - Upload image: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\test-classes\data\images.png
+2025-05-25 20:47:55.077 [main] INFO  test.pim.EmployeeTest - 6.Click Save button
+2025-05-25 20:47:55.113 [main] INFO  test.pim.EmployeeTest - 7.Verifying success toast message appears
+2025-05-25 20:47:56.466 [main] INFO  test.pim.EmployeeTest - 8.Verifying employee was actually created in the list
+2025-05-25 20:49:03.483 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 20:49:03.486 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 20:49:03.486 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 20:49:03.646 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\src\suites\employee_suite.xml
+
+2025-05-25 20:49:20.808 [main] INFO  test.pim.EmployeeTest - File path: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\test-classes\data\images.png
+2025-05-25 20:49:20.809 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-25 20:49:26.173 [main] INFO  test.pim.EmployeeTest - 2.Verifying dashboard is visible after login
+2025-05-25 20:49:26.195 [main] INFO  test.pim.EmployeeTest - 3.Navigating to PIM section via side navigation
+2025-05-25 20:49:27.062 [main] INFO  test.pim.EmployeeTest - 4.Clicking on 'Add'
+2025-05-25 20:49:28.402 [main] INFO  test.pim.EmployeeTest - 5.Filling employee details and submitting without login info
+2025-05-25 20:49:28.402 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: MqUYvUMi
+2025-05-25 20:49:29.258 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: t55tqpDn
+2025-05-25 20:49:29.277 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: ubbaz6Fw
+2025-05-25 20:49:29.299 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 03857
+2025-05-25 20:49:29.385 [main] INFO  web.pages.pim.EmployeePage - - Upload image: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\test-classes\data\images.png
+2025-05-25 20:49:29.402 [main] INFO  test.pim.EmployeeTest - 6.Click Save button
+2025-05-25 20:49:29.445 [main] INFO  test.pim.EmployeeTest - 7.Verifying success toast message appears
+2025-05-25 20:49:30.805 [main] INFO  test.pim.EmployeeTest - 8.Verifying Personal Details page is displayed
+2025-05-25 20:50:45.667 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 20:50:45.672 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 20:50:45.672 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 20:50:45.844 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\src\suites\employee_suite.xml
+
+2025-05-25 20:51:02.839 [main] INFO  test.pim.EmployeeTest - File path: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\test-classes\data\images.png
+2025-05-25 20:51:02.839 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-25 20:51:08.023 [main] INFO  test.pim.EmployeeTest - 2.Verifying dashboard is visible after login
+2025-05-25 20:51:08.045 [main] INFO  test.pim.EmployeeTest - 3.Navigating to PIM section via side navigation
+2025-05-25 20:51:08.956 [main] INFO  test.pim.EmployeeTest - 4.Clicking on 'Add'
+2025-05-25 20:51:10.413 [main] INFO  test.pim.EmployeeTest - 5.Filling employee details and submitting without login info
+2025-05-25 20:51:10.414 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: KXNfj4mp
+2025-05-25 20:51:11.258 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: xdWWge1o
+2025-05-25 20:51:11.277 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: Mo1BFIyr
+2025-05-25 20:51:11.293 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 79151
+2025-05-25 20:51:11.390 [main] INFO  web.pages.pim.EmployeePage - - Upload image: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\test-classes\data\images.png
+2025-05-25 20:51:11.409 [main] INFO  test.pim.EmployeeTest - 6.Click Save button
+2025-05-25 20:51:11.458 [main] INFO  test.pim.EmployeeTest - 7.Verifying success toast message appears
+2025-05-25 20:51:13.326 [main] INFO  test.pim.EmployeeTest - 8.Verifying Personal Details page is displayed
+2025-05-25 20:52:01.121 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 20:52:01.125 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 20:52:01.125 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 20:52:01.261 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\src\suites\employee_suite.xml
+
+2025-05-25 20:52:19.566 [main] INFO  test.pim.EmployeeTest - File path: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\test-classes\data\images.png
+2025-05-25 20:52:19.567 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-25 20:52:36.664 [main] INFO  test.pim.EmployeeTest - 2.Verifying dashboard is visible after login
+2025-05-25 20:52:36.686 [main] INFO  test.pim.EmployeeTest - 3.Navigating to PIM section via side navigation
+2025-05-25 20:52:37.600 [main] INFO  test.pim.EmployeeTest - 4.Clicking on 'Add'
+2025-05-25 20:52:38.923 [main] INFO  test.pim.EmployeeTest - 5.Filling employee details and submitting without login info
+2025-05-25 20:52:38.923 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: Y2jtBYVq
+2025-05-25 20:52:39.794 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: diyJpt1U
+2025-05-25 20:52:39.814 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: 8vV2HW8h
+2025-05-25 20:52:39.827 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 61337
+2025-05-25 20:52:39.902 [main] INFO  web.pages.pim.EmployeePage - - Upload image: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\test-classes\data\images.png
+2025-05-25 20:52:39.917 [main] INFO  test.pim.EmployeeTest - 6.Click Save button
+2025-05-25 20:52:39.991 [main] INFO  test.pim.EmployeeTest - 7.Verifying success toast message appears
+2025-05-25 20:52:41.368 [main] INFO  test.pim.EmployeeTest - 8.Verifying Personal Details page is displayed
+2025-05-25 20:53:51.812 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 20:53:51.815 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 20:53:51.816 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 20:53:51.987 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\src\suites\employee_suite.xml
+
+2025-05-25 20:54:09.853 [main] INFO  test.pim.EmployeeTest - File path: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\test-classes\data\images.png
+2025-05-25 20:54:09.853 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-25 20:54:15.491 [main] INFO  test.pim.EmployeeTest - 2.Verifying dashboard is visible after login
+2025-05-25 20:54:15.512 [main] INFO  test.pim.EmployeeTest - 3.Navigating to PIM section via side navigation
+2025-05-25 20:54:16.388 [main] INFO  test.pim.EmployeeTest - 4.Clicking on 'Add'
+2025-05-25 20:54:17.698 [main] INFO  test.pim.EmployeeTest - 5.Filling employee details and submitting without login info
+2025-05-25 20:54:17.698 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: Z6Jguaxv
+2025-05-25 20:54:18.576 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: VNojj52L
+2025-05-25 20:54:18.590 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: 85G9oQeX
+2025-05-25 20:54:18.604 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 29413
+2025-05-25 20:54:18.686 [main] INFO  web.pages.pim.EmployeePage - - Upload image: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\test-classes\data\images.png
+2025-05-25 20:54:18.706 [main] INFO  test.pim.EmployeeTest - 6.Click Save button
+2025-05-25 20:54:18.745 [main] INFO  test.pim.EmployeeTest - 7.Verifying success toast message appears
+2025-05-25 20:54:20.101 [main] INFO  test.pim.EmployeeTest - 8.Verifying Personal Details page is displayed
+2025-05-25 21:00:40.048 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 21:00:40.052 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 21:00:40.053 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 21:00:40.224 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\src\suites\employee_suite.xml
+
+2025-05-25 21:00:57.176 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-25 21:01:03.391 [main] INFO  test.pim.EmployeeTest - 2.Navigating to PIM section via side navigation
+2025-05-25 21:01:04.181 [main] INFO  test.pim.EmployeeTest - 3.Clicking on 'Add'
+2025-05-25 21:01:05.222 [main] INFO  test.pim.EmployeeTest - 4.Filling employee details and submitting with login info
+2025-05-25 21:01:06.104 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: rF2fvSeL
+2025-05-25 21:01:06.121 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: 21879Icr
+2025-05-25 21:01:06.139 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: Idy7050g
+2025-05-25 21:01:06.157 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 63321
+2025-05-25 21:01:06.260 [main] INFO  web.pages.pim.EmployeePage - - Upload image: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\test-classes\data\images.png
+2025-05-25 21:01:06.370 [main] INFO  test.pim.EmployeeTest - 5.Click Save button
+2025-05-25 21:01:06.407 [main] INFO  test.pim.EmployeeTest - 6.Verifying success toast message appears
+2025-05-25 21:06:29.056 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 21:06:29.060 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 21:06:29.061 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 21:06:29.225 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\src\suites\employee_suite.xml
+
+2025-05-25 21:06:45.556 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-25 21:06:51.014 [main] INFO  test.pim.EmployeeTest - 2.Navigating to PIM section via side navigation
+2025-05-25 21:06:51.876 [main] INFO  test.pim.EmployeeTest - 3.Clicking on 'Add'
+2025-05-25 21:06:53.006 [main] INFO  test.pim.EmployeeTest - 4.Filling employee details and submitting with login info
+2025-05-25 21:06:53.926 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: MxQAuinh
+2025-05-25 21:06:53.941 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: Q7HkDiPR
+2025-05-25 21:06:53.961 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: Gx1OG4gS
+2025-05-25 21:06:53.976 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 20035
+2025-05-25 21:06:54.062 [main] INFO  web.pages.pim.EmployeePage - - Upload image: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\test-classes\data\images.png
+2025-05-25 21:06:54.163 [main] INFO  test.pim.EmployeeTest - 5.Click Save button
+2025-05-25 21:06:54.218 [main] INFO  test.pim.EmployeeTest - 6.Verifying success toast message appears
+2025-05-25 21:06:56.612 [main] INFO  test.pim.EmployeeTest - 7.Verifying Personal Details page is displayed
+2025-05-25 21:33:27.643 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 21:33:27.648 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 21:33:27.648 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 21:33:27.835 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\src\suites\employee_suite.xml
+
+2025-05-25 21:33:49.405 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-25 21:33:55.461 [main] INFO  test.pim.EmployeeTest - 2.Navigating to PIM section via side navigation
+2025-05-25 21:33:55.944 [main] INFO  test.pim.EmployeeTest - 3.Clicking on 'Add'
+2025-05-25 21:34:33.962 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-25 21:34:39.065 [main] INFO  test.pim.EmployeeTest - 2.Navigating to PIM section via side navigation
+2025-05-25 21:34:39.917 [main] INFO  test.pim.EmployeeTest - 3.Clicking on 'Add'
+2025-05-25 21:34:41.152 [main] INFO  test.pim.EmployeeTest - 4.Filling employee details and submitting with login info
+2025-05-25 21:34:42.111 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: 89033319
+2025-05-25 21:34:42.126 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: 24636804
+2025-05-25 21:34:42.144 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: 97313595
+2025-05-25 21:34:42.159 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 18585
+2025-05-25 21:34:42.238 [main] INFO  web.pages.pim.EmployeePage - - Upload image: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\test-classes\data\images.png
+2025-05-25 21:34:42.256 [main] INFO  test.pim.EmployeeTest - 5.Verifying Personal Details page is displayed
+2025-05-25 21:35:00.445 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-25 21:35:05.476 [main] INFO  test.pim.EmployeeTest - 2.Navigating to PIM section via side navigation
+2025-05-25 21:35:06.329 [main] INFO  test.pim.EmployeeTest - 3.Clicking on 'Add'
+2025-05-25 21:35:07.696 [main] INFO  test.pim.EmployeeTest - 4.Filling employee details and submitting with login info
+2025-05-25 21:35:08.517 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: Mi5)4r8B
+2025-05-25 21:35:08.530 [main] INFO  web.pages.pim.EmployeePage - - Fill middle name: Mk6$$ztI
+2025-05-25 21:35:08.546 [main] INFO  web.pages.pim.EmployeePage - - Fill last name: Xf5&yQ24
+2025-05-25 21:35:08.560 [main] INFO  web.pages.pim.EmployeePage - - Fill employee id: 12374
+2025-05-25 21:35:08.632 [main] INFO  web.pages.pim.EmployeePage - - Upload image: C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\target\test-classes\data\images.png
+2025-05-25 21:35:08.647 [main] INFO  test.pim.EmployeeTest - 5.Click Save button
+2025-05-25 21:35:08.698 [main] INFO  test.pim.EmployeeTest - 6.Verifying success toast message appears
+2025-05-25 21:36:56.521 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 21:36:56.525 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 21:36:56.525 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 21:36:56.686 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\src\suites\employee_suite.xml
+
+2025-05-25 21:37:14.581 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-25 21:37:30.872 [main] INFO  test.pim.EmployeeTest - 2.Navigating to PIM section via side navigation
+2025-05-25 21:37:33.650 [main] INFO  test.pim.EmployeeTest - 3.Clicking on 'Add'
+2025-05-25 21:37:36.317 [main] INFO  test.pim.EmployeeTest - 4.Filling employee details and submitting with login info
+2025-05-25 21:37:37.257 [main] INFO  web.pages.pim.EmployeePage - - Fill first name: null
+2025-05-25 21:42:49.719 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 21:42:49.722 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 21:42:49.722 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 21:42:49.881 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\src\suites\employee_suite.xml
+
+2025-05-25 21:43:06.974 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials
+2025-05-25 21:43:42.225 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 21:43:42.229 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 21:43:42.230 [main] WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2025-05-25 21:43:42.373 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\ZBOOK\Documents\Tester\orangeHRM-playwright\src\suites\employee_suite.xml
+
+2025-05-25 21:43:59.276 [main] INFO  test.pim.EmployeeTest - 1.Log in with Admin credentials

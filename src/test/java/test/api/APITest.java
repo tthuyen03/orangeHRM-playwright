@@ -1,10 +1,7 @@
 package test.api;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.microsoft.playwright.APIResponse;
-import data.LoginData;
-import factory.DriverFactory;
+import browser.BrowserManager;
 import org.testng.annotations.Test;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -19,13 +16,13 @@ public class APITest {
 
     @BeforeClass
     public static void setUp() {
-        DriverFactory.initAPI(Map.of("Accept", "application/json"));
-        api = new BaseAPI(DriverFactory.getApiRequestContext());
+        BrowserManager.initAPI(Map.of("Accept", "application/json"));
+        api = new BaseAPI(BrowserManager.getApiRequestContext());
     }
 
     @AfterClass
     public void tearDown(){
-        DriverFactory.closePlaywright();
+        BrowserManager.closePlaywright();
     }
 
 

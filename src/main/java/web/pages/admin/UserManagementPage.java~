@@ -5,6 +5,7 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import com.microsoft.playwright.options.LoadState;
 import com.microsoft.playwright.options.WaitForSelectorState;
+import io.qameta.allure.Step;
 import utils.CommonAction;
 import utils.ElementUtils;
 import web.base.BasePage;
@@ -45,7 +46,7 @@ public class UserManagementPage extends BasePage {
     private final Locator inputConfirmPassword = page.locator("input[type='password']:below(label:has-text('Confirm Password'))").first();
     private final Locator btnSubmit = page.locator("button:has-text('Save')");
     private final Locator passwordStrengthIndicator = page.locator("//div[contains(@class, 'password-strength')]");
-    private final Locator passwordStrengthLevel = page.locator("//div[contains(@class, 'password-strength')]//span");
+    private final Locator passwordStrengthLevel = page.locator("//span[contains(@class,'orangehrm-password-chip')]");
     private final List<Locator> errorMessageList = page.locator("//span[contains(@class,'input-field-error-message')]").all();
 
     // ================ Constructor ================
@@ -79,6 +80,7 @@ public class UserManagementPage extends BasePage {
     }
 
 
+    @Step("Click Add button")
     public void clickAdd() {
         btnAdd.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
         btnAdd.click();
@@ -95,7 +97,7 @@ public class UserManagementPage extends BasePage {
     public String randomValidEmployeeName() {
         Random rand = new Random();
         List<String> employeeNames = List.of(
-                "Ranga Akunuri", "Jobin Mathew Sam", "Timothy Lewis Amiano");
+                "Ranga  Akunuri");
         return employeeNames.get(rand.nextInt(employeeNames.size()));
     }
 
@@ -125,7 +127,7 @@ public class UserManagementPage extends BasePage {
         return status.get(rand.nextInt(status.size()));
     }
 
-
+    @Step("Verify user is created")
     public boolean isUserCreated(String username) {
         searchUserByUsername(username);
         page.waitForLoadState(LoadState.NETWORKIDLE);
@@ -166,7 +168,7 @@ public class UserManagementPage extends BasePage {
         waitAndFill(inputConfirmPassword, confirmPassword);
     }
 
-
+    @Step("Add user")
     public void addUser(String employeeName, String username, String role, String status, String password, String confirmPass) {
         selectUserRole(role);
         selectStatus(status);
@@ -177,6 +179,7 @@ public class UserManagementPage extends BasePage {
         page.waitForLoadState(LoadState.NETWORKIDLE);
     }
 
+    @Step("Click Save button")
     public void clickSave(){
         btnSubmit.click();
     }

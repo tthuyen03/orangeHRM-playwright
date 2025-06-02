@@ -1,12 +1,11 @@
 package web.pages.login;
 
-import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import com.microsoft.playwright.options.Cookie;
-import factory.DriverFactory;
+import browser.BrowserManager;
 import io.qameta.allure.Step;
 import web.base.BasePage;
 
@@ -35,7 +34,7 @@ public class LoginPage extends BasePage {
 
 
 
-
+    @Step("Login with username: {0}, password: {1}")
     public void login(String username, String password){
         inputUsername.fill(username);
         inputPassword.fill(password);
@@ -85,7 +84,7 @@ public class LoginPage extends BasePage {
 
     public void checkSession(){
         Path sessionPath = Paths.get("auth.json");
-        DriverFactory.getContext().storageState(
+        BrowserManager.getContext().storageState(
                 new BrowserContext.StorageStateOptions().setPath(sessionPath)
         );
         assertTrue(Files.exists(sessionPath), "Expected session file (auth.json) to be created after login");
