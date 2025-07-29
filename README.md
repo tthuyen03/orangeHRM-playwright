@@ -17,7 +17,6 @@
    1.2 Automation Testing
      - Automate regression and functional tests for key workflows.
      - Maintain automation scripts for login, logout, and employee/user management features.
-     - Integrate automated tests into the CI/CD pipeline for continuous validation.
 
 2. Tools & Technologies
   - Automation: Playwright, TestNG, Java, Allure
